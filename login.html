@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anta&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/7d4a336cd6.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="login.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main form-container">
+      <div class="login-form active">
+        <div class="container">
+          <h2 class="login-text">Login</h2>
+        </div>
+        <div class="error-msg"></div>
+        <div class="container">
+          <form
+            class="user-pass"
+            action="/login"
+            method="post"
+            id="login-form-validation"
+          >
+            <div class="user-container">
+              <i class="fa fa-user icon"></i>
+              <input
+                class="username"
+                type="text"
+                id="username-login"
+                name="username"
+                placeholder="Username"
+              />
+            </div>
+            <div class="user-error-login"></div>
+            <div class="password-container">
+              <i class="fa fa-lock icon"></i>
+              <input
+                class="password"
+                type="password"
+                id="password-login"
+                name="password"
+                placeholder="Password"
+              />
+              <i class="fa-solid fa-eye" id="show-password-login"></i>
+            </div>
+            <div class="password-error-login"></div>
+            <br />
+            <!-- <br /> -->
+            <button type="submit" class="btn" id="loginBtn">Login</button>
+          </form>
+        </div>
+        <div class="container">
+          <p class="p-text">
+            Don't have an account?
+            <a href="#" id="register-link">Register</a>
+          </p>
+        </div>
+      </div>
+      <div class="register-form">
+        <div class="container">
+          <h2 class="register-text">Register</h2>
+        </div>
+        <div class="error-msg-reg"></div>
+        <div class="container">
+          <form class="user-pass" action="/register" method="post">
+            <div class="user-container">
+              <i class="fa fa-user icon"></i>
+              <input
+                class="username"
+                type="text"
+                id="username-reg"
+                name="username"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div class="user-error-reg"></div>
+            <div class="password-container">
+              <i class="fa fa-lock icon"></i>
+              <input
+                class="password"
+                type="password"
+                id="password-reg"
+                name="password"
+                placeholder="Password"
+                required
+              />
+              <i class="fa-solid fa-eye" id="show-password-reg"></i>
+            </div>
+            <div class="password-error-reg"></div>
+            <br />
+            <button type="submit" class="btn" id="registerBtn">Register</button>
+          </form>
+        </div>
+        <div class="container">
+          <p class="p-text">
+            Already have an account?
+            <a href="#" id="loginLink">Login</a>
+          </p>
+        </div>
+      </div>
+      <div class="popup-quote" id="popup-quote">
+        <div class="popup-inner">
+          <h3>Quote of the day</h3>
+          <p class="random-quote"></p>
+          <p class="random-author"></p>
+          <button id="popup-continue" class="btn">Continue</button>
+        </div>
+      </div>
+      <div class="popup-success" id="popup-success">
+        <div class="success-inner">
+          <h3>Registration successfull!</h3>
+          <button id="proceed-login" class="btn">Proceed to login</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
