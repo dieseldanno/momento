@@ -136,6 +136,17 @@ function createTodoElement(todo) {
         deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
         deleteBtn.addEventListener('click', () => {
             todoItem.remove();
+               // Skapa en ny array som inte innehåller todoItem
+            todoArray = todoArray.filter(item => {
+                // Jämför innehållet i todoItem och item för att avgöra om de är samma todo
+                return item.title !== todo.title ||
+                item.description !== todo.description ||
+                item.category !== todo.category ||
+                item.estTime !== todo.estTime ||
+                item.deadline !== todo.deadline;
+                
+            }); 
+            console.log(todoArray); 
         });
 
     let isDoneCheckbox = document.createElement('input');
