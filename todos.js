@@ -1,3 +1,4 @@
+
 // Variabler för Add Todo-modal
 let addBtn = document.getElementById("addBtn");
 let modal = document.getElementById("myModal");
@@ -11,6 +12,7 @@ let todosContainer = document.getElementById('todosContainer');
 
 // Array för att lagra alla todos
 let todoArray = [];
+  
 
 addBtn.addEventListener("click", addTodo);
 
@@ -82,15 +84,17 @@ function renderTodos(todo) {
     let todoItem = createTodoElement(todo);
     appendTodoElement(todoItem);
     todoArray.push(todo);
-}
+    
+};
 
 // Funktion för att skapa DOM-element för en todo
 function createTodoElement(todo) {
     let todoItem = document.createElement("div");
     todoItem.classList.add("todo-item");
+    todoItem.classList.add(`category-${todo.category.toLowerCase().replace("&", "and").replace(/\s+/g, "-")}`);
     todoItem.innerHTML = `
         <h3>${todo.title}</h3>
-        <p>${todo.description}</p>
+        <p class="description">${todo.description}</p>
         <p class="category">Category: ${todo.category}</p>
         <p class="estTime">Time: ${todo.estTime}</p>
         <p class="deadline">Deadline: ${todo.deadline}</p>
@@ -116,14 +120,14 @@ function createTodoElement(todo) {
             
             console.log(todoCategory, todoEstTime);
             todoForm.title.value = todoTitle;
-            todoForm.description.innerText = todoDescription;
+            todoForm.description.value = todoDescription;
             todoForm.modalCategory.selectedIndex = todoCategory;
             todoForm.modalEstTime.selectedIndex = todoEstTime;
             todoForm.modalDeadline.value = todoDeadline;
         
             saveBtn.addEventListener("click", () => {
                 todoItem.remove()
-                renderTodos ();
+                renderTodos();
                 modal.style.display = "none";
                 todoForm.reset();
             }
@@ -247,3 +251,5 @@ document.querySelectorAll('.categoryFilter input[type="checkbox"]').forEach(chec
 
 filterStatus();
 sortTime();
+
+

@@ -14,7 +14,7 @@ body {
 }
 
 header {
-    height: 6rem;
+    height: 4rem;
 }
 
 main {
@@ -22,8 +22,9 @@ main {
     width: 100%;
     padding: 1rem;
     display: flex;
+    justify-content: center;
     gap:2rem;
-    background-color: pink;
+    background-color: rgb(247, 217, 222);
 }
 
 .wrapper {
@@ -32,6 +33,10 @@ main {
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    border: 2px solid white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
 }
 
 
@@ -41,16 +46,17 @@ main {
 }
 
 #addBtn {
-    width: 8rem;
+    width: 8.5rem;
     height: 3rem;
     background-color:#fefefe;
-    font-weight: 400;
+    font-weight: 500;
+    border: 1px solid black;
     border-radius: 4px;
 }
 
 h1 {
     margin: 20px 10px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .categoryFilter {
@@ -125,7 +131,7 @@ select {
         margin: auto;
         padding: 20px;
         border: 1px solid #888;
-        width: 50%;
+        width: 30%;
         border: 2px solid #060606;
         border-radius: 20px;
         position: relative;
@@ -197,15 +203,16 @@ select {
   }
 
   #todosContainer {
-    margin: 10px;
+    margin: 0.8rem;
   }
 
   .todo-item {
-    background-color: #f2ddf8;
+    background-color: #f6e7fa;
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px;
     margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     position: relative;
 }
 
@@ -214,15 +221,15 @@ select {
     font-weight: 400;
 }
 
-.todo-item p {
-    margin-bottom: 5px;
+.todo-item .description {
+    margin: 5px 0px 10px 0px;
 }
 
 .todo-item .category,.estTime,.deadline {
     font-size: 12px;
 }
 .todo-item button {
-    margin-right: 4px;
+    margin: 10px 4px 0px 0px;
     width: 2.2rem;
     padding: 4px;
     background-color: #fefefe;
@@ -232,12 +239,13 @@ select {
 
 .todo-item input {
     position: absolute;
-    bottom: 14px;
+    bottom: 22px;
     right: 20px;
 }
 .todo-item label {
+    font-size: 14px;
     position: absolute;
-    bottom:12px;
+    bottom:20px;
     right: 40px;
 }
 
@@ -248,4 +256,20 @@ select {
 .isDone {
     color: #888;
     text-decoration: line-through;
+}
+
+.category-health {
+    background-color: #ecebe9; 
+}
+
+.category-work {
+    background-color: #cde9e9; 
+}
+
+.category-home-and-family {
+    background-color: #f5d3d8; 
+}
+
+.category-hobbies-and-leisure {
+    background-color: #f7f3c8; 
 }
