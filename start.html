@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="startpage.css" />
+    <script src="startpage.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/7d4a336cd6.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav>
+        <ul class="header-menu">
+          <li>
+            <a class="header-link weather-desktop" href="#">WEATHER</a>
+          </li>
+          <li>
+            <a class="header-link pomodoro-desktop" href="#">POMODORO</a>
+          </li>
+          <li>
+            <a class="header-link calendar-desktop" href="#">CALENDAR</a>
+          </li>
+          <li class="desktop-line"></li>
+          <li>
+            <a href="#" class="logout-btn logout">LOGOUT</a>
+          </li>
+        </ul>
+        <i class="fa-solid fa-bars" id="menu-bars"> </i>
+      </nav>
+    </header>
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <nav>
+        <ul class="mobile-nav-menu">
+          <li>
+            <a class="mobile-nav-link start-mobile" href="#">START</a>
+          </li>
+          <li>
+            <a class="mobile-nav-link todo-mobile" href="#">TO DO</a>
+          </li>
+          <li>
+            <a class="mobile-nav-link habits-mobile" href="#">HABITS</a>
+          </li>
+          <li>
+            <a class="mobile-nav-link weather-mobile" href="#">WEATHER</a>
+          </li>
+          <li>
+            <a class="mobile-nav-link pomodoro-mobile" href="#">POMODORO</a>
+          </li>
+          <li>
+            <a class="mobile-nav-link calendar-mobile" href="#">CALENDAR</a>
+          </li>
+          <li class="desktop-line"></li>
+          <li>
+            <a href="#" class="logout-btn logout">LOGOUT</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main">
+      <div class="container">
+        <div>
+          <a href="#" class="btn todo mobile-btn">TO DO</a>
+        </div>
+        <div>
+          <a href="#" class="btn habits mobile-btn">HABITS</a>
+        </div>
+        <div>
+          <a href="#" class="btn weather mobile-btn">WEATHER</a>
+        </div>
+        <div>
+          <a href="#" class="btn pomodoro mobile-btn">POMODORO</a>
+        </div>
+        <div>
+          <a href="#" class="btn calendar mobile-btn">CALENDAR</a>
+        </div>
+      </div>
+      <div class="modal popup-weather"></div>
+      <div class="modal popup-pomodoro"></div>
+      <div class="modal popup-calendar"></div>
+    </div>
+  </body>
+</html>
