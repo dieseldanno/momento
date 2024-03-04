@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const userOnline = JSON.parse(localStorage.getItem("userOnline"));
+  const usernameDisplay = document.querySelector("#usernameDisplay");
+
+  if (userOnline) {
+    usernameDisplay.innerText = `Welcome ${userOnline.username}`;
+    console.log("Current user: ", userOnline.username);
+  }
+});
+
 const menuBar = document.querySelector("#menu-bars");
 const mobileNav = document.querySelector(".mobile-nav");
 
