@@ -168,6 +168,7 @@ loginBtn.addEventListener("click", (event) => {
 
   if (user) {
     localStorage.setItem("userOnline", JSON.stringify(user));
+
     // alert("login succesfull");
     getQuote().then(() => {
       popupQuote.classList.add("open");
@@ -193,5 +194,3 @@ proceedLoginBtn.addEventListener("click", () => {
   registerForm.classList.remove("active");
   errorMsg.style.display = "none";
 });
-
-// test
