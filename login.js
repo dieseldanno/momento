@@ -184,7 +184,7 @@ loginBtn.addEventListener("click", (event) => {
 continueBtn.addEventListener("click", () => {
   popupQuote.classList.remove("open");
   clearInput();
-  window.location.href = "startpage.html";
+  window.location.href = "start.html";
 });
 
 proceedLoginBtn.addEventListener("click", () => {
