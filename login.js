@@ -168,6 +168,7 @@ loginBtn.addEventListener("click", (event) => {
 
   if (user) {
     localStorage.setItem("userOnline", JSON.stringify(user));
+
     // alert("login succesfull");
     getQuote().then(() => {
       popupQuote.classList.add("open");
@@ -184,7 +185,7 @@ loginBtn.addEventListener("click", (event) => {
 continueBtn.addEventListener("click", () => {
   popupQuote.classList.remove("open");
   clearInput();
-  window.location.href = "startpage.html";
+  window.location.href = "start.html";
 });
 
 proceedLoginBtn.addEventListener("click", () => {
