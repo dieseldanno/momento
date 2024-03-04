@@ -167,6 +167,7 @@ loginBtn.addEventListener("click", (event) => {
   console.log(user);
 
   if (user) {
+    localStorage.setItem("userOnline", JSON.stringify(user));
     // alert("login succesfull");
     getQuote().then(() => {
       popupQuote.classList.add("open");
@@ -183,6 +184,7 @@ loginBtn.addEventListener("click", (event) => {
 continueBtn.addEventListener("click", () => {
   popupQuote.classList.remove("open");
   clearInput();
+  window.location.href = "startpage.html";
 });
 
 proceedLoginBtn.addEventListener("click", () => {
@@ -191,43 +193,3 @@ proceedLoginBtn.addEventListener("click", () => {
   registerForm.classList.remove("active");
   errorMsg.style.display = "none";
 });
-
-// inputText.addEventListener("click", clearRegField);
-
-// const toggleVisibility = (passwordField, showPassword) => {
-//   if (passwordField.type === "password") {
-//     passwordField.type = "text";
-//     showPassword.classList.remove("fa-eye");
-//     showPassword.classList.add("fa-eye-slash");
-//   } else {
-//     passwordField.type = "password";
-//     showPassword.classList.remove("fa-eye-slash");
-//     showPassword.classList.add("fa-eye");
-//   }
-// };
-
-// let userVal = usernameReg.value.trim();
-// let passVal = passwordReg.value.trim();
-
-// if (userVal === "") {
-//   userRegError.textContent = "Username is required";
-//   userRegError.style.display = "block";
-//   console.log("username required");
-//   return;
-// } else if (userVal.length < 5) {
-//   userRegError.textContent = "Username needs at least 5 characters";
-//   userRegError.style.display = "block";
-//   console.log("username < 5");
-//   return;
-// } else if (passVal === "") {
-//   passRegError.textContent = "Password is required";
-//   passRegError.style.display = "block";
-//   console.log("password required");
-//   return;
-// } else if (passVal.length < 5) {
-//   passRegError.textContent = "Password needs at least 5 characters";
-//   passRegError.style.display = "block";
-//   console.log("password < 5");
-//   return;
-// }
-// test
