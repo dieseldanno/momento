@@ -29,3 +29,12 @@ menuBar.addEventListener("click", () => {
     menuBar.classList.add("fa-bars");
   }
 });
+
+const logoutBtn = document.querySelectorAll(".logout-btn");
+
+logoutBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    window.location.href = "landing.html";
+    localStorage.removeItem("userOnline");
+  });
+});
