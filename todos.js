@@ -11,7 +11,17 @@ let todoForm = document.getElementById('todoForm');
 let todosContainer = document.getElementById('todosContainer');
 
 // Array för att lagra alla todos
-let todoArray = [];
+ let todoStorage = [];
+
+window.addEventListener("load", () => {
+    todoStorage = JSON.parse(localStorage.getItem("todos") || []);
+
+    todoStorage.forEach(todo => {
+        renderTodos(todo)
+    });
+});
+
+console.log(todoStorage);
   
 
 addBtn.addEventListener("click", addTodo);
@@ -22,7 +32,6 @@ function addTodo() {
     modal.style.display = "block";
     modalh2.innerText = "New todo";
     saveBtn.innerText = "Add Todo";
-
 }
 
 // Funktion för att stänga modalen
@@ -72,6 +81,7 @@ todoForm.addEventListener('submit', function (event) {
         isChecked:false,
     };
 
+
     renderTodos(todo);
 
     todoForm.reset();
@@ -79,12 +89,19 @@ todoForm.addEventListener('submit', function (event) {
     closeModal();
 });
 
-// Funktion för att rendera en todo
+
+//Funktion för att rendera en todo
 function renderTodos(todo) {
     let todoItem = createTodoElement(todo);
     appendTodoElement(todoItem);
-    todoArray.push(todo);
-    
+    console.log(todo);
+    // Jämför todo med innehåll i array, om den inte redan finns, lägg till todo och uppdatera localStorage.
+    let existingTodoIndex = todoStorage.findIndex(item => JSON.stringify(item) === JSON.stringify(todo));
+    if (existingTodoIndex === -1) {
+        todoStorage.push(todo);
+        localStorage.setItem("todos", JSON.stringify(todoStorage));
+    }
+    console.log(todoStorage);
 };
 
 // Funktion för att skapa DOM-element för en todo
@@ -99,6 +116,7 @@ function createTodoElement(todo) {
         <p class="estTime">Time: ${todo.estTime}</p>
         <p class="deadline">Deadline: ${todo.deadline}</p>
     `;
+    console.log(todoItem);
 
     // Knappar, checkbox och label 
     let editBtn = document.createElement('button');
@@ -125,28 +143,44 @@ function createTodoElement(todo) {
             todoForm.modalEstTime.selectedIndex = todoEstTime;
             todoForm.modalDeadline.value = todoDeadline;
         
-            saveBtn.addEventListener("click", () => {
-                todoItem.remove()
-                renderTodos();
-                modal.style.display = "none";
-                todoForm.reset();
-            }
-        )});
+
+        saveBtn.addEventListener("click", () => {
+            todoItem.remove();
+            // Uppdatera todo-objektet med nya värden från formuläret
+            todo.title = todoForm.title.value;
+            todo.description = todoForm.description.value;
+            todo.categoryIndex = todoForm.modalCategory.selectedIndex;
+            todo.estTimeIndex = todoForm.modalEstTime.selectedIndex;
+            todo.deadline = todoForm.modalDeadline.value;
+        
+            // Uppdatera todo-elementet i DOM
+            todoItem.querySelector('h3').innerText = todo.title;
+            todoItem.querySelector('p.description').innerText = todo.description;
+        
+            //Hitta index för den befintliga todon i todoStorage
+            let indexToRemove = todoStorage.findIndex(item => item === todo);
+        
+            // Ersätt den befintliga todon med den uppdaterade versionen
+            todoStorage.splice(indexToRemove, 1);
+                    
+            // Rendera todos
+            renderTodos();
+            // Ta bort modal och återställ formuläret
+            modal.style.display = "none";
+            todoForm.reset();
+        });
+    });
+
+        
         let deleteBtn = document.createElement('button');
         deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
         deleteBtn.addEventListener('click', () => {
+            let indexToRemove = todoStorage.findIndex(item => item === todo);
+            // Ta bort todo från todoStorage-listan
+            todoStorage.splice(indexToRemove, 1);
             todoItem.remove();
-               // Skapa en ny array som inte innehåller todoItem
-            todoArray = todoArray.filter(item => {
-                // Jämför innehållet i todoItem och item för att avgöra om de är samma todo
-                return item.title !== todo.title ||
-                item.description !== todo.description ||
-                item.category !== todo.category ||
-                item.estTime !== todo.estTime ||
-                item.deadline !== todo.deadline;
-                
-            }); 
-            console.log(todoArray); 
+            updateLocalStorage();
+            console.log(todoStorage); 
         });
 
     let isDoneCheckbox = document.createElement('input');
@@ -166,7 +200,8 @@ function createTodoElement(todo) {
     // Lyssnare för checkbox
     isDoneCheckbox.addEventListener("change", () => {
         todo.isChecked = isDoneCheckbox.checked;
-        todoItem.classList.toggle("isDone", isDoneCheckbox.checked)
+        todoItem.classList.toggle("isDone", isDoneCheckbox.checked);
+        updateLocalStorage();
     });
 
     // Lägg till knappar, checkbox och label till todo-elementet
@@ -188,7 +223,7 @@ function sortTime() {
         todosContainer.innerHTML = "";
 
 
-        todoArray.sort(function(a, b){
+        todoStorage.sort(function(a, b){
             let deadlineA = new Date(a.deadline);
             let deadlineB = new Date(b.deadline);
             if (selectedOption === 'timeAscending')
@@ -200,7 +235,7 @@ function sortTime() {
                 else if (selectedOption === 'deadlineDescending') 
                     return deadlineB - deadlineA;
         });
-        todoArray.forEach(todoItem => {
+        todoStorage.forEach(todoItem => {
             let todoElement = createTodoElement(todoItem);
             appendTodoElement(todoElement);
             
@@ -209,8 +244,7 @@ function sortTime() {
 }
 
 // Funktion för att filtrera todos baserat på status
-function
-filterStatus() {
+function filterStatus() {
     let statusFilter = document.querySelector('#statusFilter'); 
 
     statusFilter.addEventListener("change", () => {
@@ -260,7 +294,13 @@ document.querySelectorAll('.categoryFilter input[type="checkbox"]').forEach(chec
     checkbox.addEventListener('change', filterByCategory);
 });
 
+function updateLocalStorage () {
+    todoStorage = todoStorage.filter(todo => todo !== null);
+    localStorage.setItem("todos", JSON.stringify(todoStorage));
+};
+
 filterStatus();
 sortTime();
+
 
 
