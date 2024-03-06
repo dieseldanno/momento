@@ -1,0 +1,14 @@
+// Mixins and variables
+@import "./_mixinsAndVariables.scss";
+//Resten av partials ska  längst ner för att prioriteras i rätt ordning, scss laddas först, sen partials :)
+
+// Här i mitten kan vi lägga alla allmän scss som gäller alla sidor
+//Tex nav, bakgrundsfärger, fonts, sizes och regler för hur containers ska se ut
+//Så de blir enhetligt 
+//kanske lägga media queries här
+
+//OBS style.scss renderar till style.css så vi ska INTE skriva direkt i den css-filen!
+//Bara här eller i egna css filerna :)))))
+
+//Här lägger vi partials till specifik scss, här e min för habits
+@import "./_habits.scss";
