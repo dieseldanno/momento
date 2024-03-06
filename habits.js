@@ -144,7 +144,7 @@ function sortHabits() {
     let sortSelect = document.getElementById("sortHabits");
     sortSelect.addEventListener("change", (event) => {
       let selectedOption = event.target.value;
-      habits.innerHTML = ""; // Clear existing list items
+      habits.innerText = ""; // Clear existing list items
   
   
       habits.sort(function (a, b) {
