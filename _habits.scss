@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+}
+h1, h2, h3, h4 {
+    font-family: Righteous, Helvetica, sans-serif;
+}
+
+
+.habitContainer{
+    background: lavender
+}
+
+.add-habit {
+    padding: 20px;
+
+    .input{
+        margin: 20px;
+    }
+}
+
+.btn-decrement:disabled, 
+.btn-reset:disabled {
+    opacity: 0.5; /* Set opacity to 0.5 for a greyed-out effect */
+    cursor: not-allowed; /* Change cursor to indicate disabled state */
+    pointer-events: none; /* Prevent clicks and other user interactions */
+  }
