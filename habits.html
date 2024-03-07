@@ -30,6 +30,7 @@
                 class="my-3 form-control"
                 type="number"
                 name="reps"
+                id="repsInput"
                 placeholder="# of Repetitions"
                 min="1"
                 required
@@ -55,16 +56,21 @@
             </form>
 
             <div class=" w-75 mx-auto border shadow rounded d-flex justify-content-between">
-              <div class="filter-container">
-                <label for="filterHabits">Filter by Priority:</label>
-                <input type="checkbox" id="filterAll" value="all" checked>
-                <label for="filterAll">All</label><br>
+
+              <div class="filter-container form-check">
+                <div>
+                <label for="filterHabits" class="block">Filter by Priority:</label>
+              </div>
                 <input type="checkbox" id="filterLow" value="low">
                 <label for="filterLow">Low</label><br>
                 <input type="checkbox" id="filterNormal" value="normal">
                 <label for="filterNormal">Normal</label><br>
                 <input type="checkbox" id="filterHigh" value="high">
                 <label for="filterHigh">High</label>
+                <div>
+                <button class="btn btn-light border shadow" id="clearAllFilters">Clear Filters</button>
+              </div>
+
               </div>
 
               <div class="sort-container">
@@ -77,7 +83,6 @@
                   <option value="lowest-priority">Lowest Priority</option>
                 </select>
               </div>
-            
 
             </div>
 

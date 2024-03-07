@@ -35,26 +35,36 @@ function addHabit(e) {
 
 // Function to display habits
 function listHabits(habits = [], habitsList) {
-  habitsList.innerHTML = habits.map((habit, i) => {
-    // Generate HTML for each habit
-    const disabled = habit.streak === 0 ? "disabled" : ""; // Set disabled class if streak is 0
-    return `
-      <li class="shadow border rounded bg-light mx-auto m-4 p-3">
-      <h4> <i class="fa-solid fa-fire"></i> ${habit.streak} 
-      ${habit.text} </h4> 
-      <div>${habit.reps}/${habit.totalCounts} ${habit.timeframe} 
-      <input type="checkbox" data-index="${i}" id="habit${i}" ${habit.completed ? "checked" : ""} />
-      </div>
+    habitsList.innerHTML = habits.map((habit, i) => {
+      // Generate HTML for each habit
+      const disabled = habit.streak === 0 ? "disabled" : ""; // Set disabled class if streak is 0
+      return `
+        <li class="shadow border rounded bg-light mx-auto m-4 p-3">
+          <h4> <i class="fa-solid fa-fire"></i> ${habit.streak} 
+            ${habit.text} </h4> 
+          <div>${habit.reps}/${habit.totalCounts} ${habit.timeframe} 
+            <input type="checkbox" data-index="${i}" id="habit${i}" ${habit.completed ? "checked" : ""} />
+          </div>
           <div>Priority: ${habit.priority}</div>
-        <button class="btn btn-sm btn-light shadow border btn-decrement ${disabled}" data-index="${i}" data-streak="${habit.streak}"><i class="fa-solid fa-minus"></i></button>
-        <span>${habit.streak}</span>
-        <button class="btn btn-sm btn-light shadow border btn-increment" data-index="${i}"> <i class="fa-solid fa-plus"></i></button>
-        <button class="btn btn-sm btn-light shadow border btn-reset ${disabled}" data-index="${i}" data-streak="${habit.streak}"><i class="fa-solid fa-rotate-left"></i></button>
-        <button class="btn btn-sm bg-danger shadow border delete" data-index="${i}" id="delete${i}"><i class="fa-solid fa-xmark"></i></button>
-      </li>
-    `;
-  }).join("");
-}
+          <button class="btn btn-light shadow border btn-decrement${disabled}" data-index="${i}" data-streak="${habit.streak}"><i class="fa-solid fa-minus"></i></button>
+          <span>${habit.streak}</span>
+          <button class="btn btn-light shadow border btn-increment" data-index="${i}"> <i class="fa-solid fa-plus"></i></button>
+          <button class="btn btn-light shadow border btn-reset ${disabled}" data-index="${i}" data-streak="${habit.streak}"><i class="fa-solid fa-rotate-left"></i></button>
+          <button class="btn bg-danger shadow border delete" data-index="${i}" id="delete${i}"><i class="fa-solid fa-xmark"></i></button>
+        </li>
+      `;
+    }).join("");
+  
+    // Event listener for clicks on habitsList (event delegation)
+    habitsList.addEventListener("click", function (e) {
+      if (e.target.matches(".fa-solid")) { // Check if clicked element is an icon
+        const button = e.target.closest("button"); // Find the closest button
+        if (button) {
+          button.click(); // Trigger the button click
+        }
+      }
+    }); 
+  }
 
 // Function to toggle completion status of habit
 function toggleCompleted(e) {
@@ -169,42 +179,42 @@ function sortHabits() {
   }
 // Filter function based on selected priorities
 function filterHabits() {
+    if (!document.querySelector("input[type='checkbox']:checked")) {
+        // No filters applied, show all habits
+        listHabits(habits, habitsList);
+        return; // Exit early if no filters are applied
+    }
+
     const filterLow = document.getElementById("filterLow").checked;
     const filterNormal = document.getElementById("filterNormal").checked;
     const filterHigh = document.getElementById("filterHigh").checked;
-    const filterAll = document.getElementById("filterAll").checked;
-  
+
     const filteredHabits = habits.filter(habit => {
-      // Check for "All" checkbox first; otherwise, apply filtering logic
-      if (filterAll) {
-        return true; // Show all habits if "All" is checked
-      }
-  
-      // Include habit if any checked checkbox matches its priority
-      return (filterLow && habit.priority === "low") ||
-             (filterNormal && habit.priority === "normal") ||
-             (filterHigh && habit.priority === "high");
+        return (filterLow && habit.priority === "low") ||
+               (filterNormal && habit.priority === "normal") ||
+               (filterHigh && habit.priority === "high");
     });
-  
+
     listHabits(filteredHabits, habitsList); // Display filtered habits
-  }
-  
-  // Event listener for each checkbox change
-  const filterCheckboxes = document.querySelectorAll(".filter-container input[type=checkbox]");
-  filterCheckboxes.forEach(checkbox => {
+}
+
+// Event listener for each checkbox change
+const filterCheckboxes = document.querySelectorAll(".filter-container input[type=checkbox]");
+filterCheckboxes.forEach(checkbox => {
     checkbox.addEventListener("change", filterHabits);
-  });
-  
-  // Clear filter button (optional)
-  const clearFilterButton = document.getElementById("clearFilter"); // Assuming you have a button with this ID
-  if (clearFilterButton) {
-    clearFilterButton.addEventListener("click", () => {
-      // Deselect all checkboxes and re-filter
-      filterCheckboxes.forEach(checkbox => checkbox.checked = false);
-      filterHabits();
-    });
-  }
-  
-  // Update habits list and sort initially
+});
+
+// Clear all filters button
+const clearAllFiltersButton = document.getElementById("clearAllFilters");
+clearAllFiltersButton.addEventListener("click", clearAllFilters);
+
+function clearAllFilters() {
+    const filterCheckboxes = document.querySelectorAll(".filter-container input[type=checkbox]");
+    filterCheckboxes.forEach(checkbox => checkbox.checked = false); // Uncheck all checkboxes
+    listHabits(habits, habitsList); // Update the habits list to show all habits
+}
+
+
+// Update habits list and sort initially
 listHabits(habits, habitsList);
 sortHabits();

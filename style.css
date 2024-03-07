@@ -10,16 +10,15 @@
   background: lavender;
 }
 
-.add-habit {
-  padding: 20px;
-}
-.add-habit .input {
-  margin: 20px;
+i {
+  cursor: pointer;
+  pointer-events: inherit;
 }
 
 .btn-decrement:disabled,
 .btn-reset:disabled {
-  opacity: 0.5; /* Set opacity to 0.5 for a greyed-out effect */
+  opacity: 0.2; /* Set opacity to 0.5 for a greyed-out effect */
   cursor: not-allowed; /* Change cursor to indicate disabled state */
   pointer-events: none; /* Prevent clicks and other user interactions */
+  color: white;
 }/*# sourceMappingURL=style.css.map */
