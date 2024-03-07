@@ -144,31 +144,27 @@ function deleteHabit(e) {
 }
 
 function sortHabits() {
-    let sortSelect = document.getElementById("sortHabits");
+    const sortSelect = document.getElementById("sortHabits");
     sortSelect.addEventListener("change", (event) => {
-      let selectedOption = event.target.value;
-      habits.innerText = ""; // Clear existing list items
-  
-  
-      habits.sort(function (a, b) {
+      const selectedOption = event.target.value;
+      habits.sort((a, b) => {
         if (selectedOption === "highest-streak") {
-          // Sort descending for highest streak
           return b.streak - a.streak; // Reverse order for descending sort
         } else if (selectedOption === "lowest-streak") {
-          // Sort ascending for lowest streak
           return a.streak - b.streak; // Keep order for ascending sort
         } else if (selectedOption === "highest-priority") {
-          // Sort priority descending (highest priority first)
-          return b.priority.localeCompare(a.priority); 
+          // Custom sorting for priorities
+          const priorityOrder = { high: 3, normal: 2, low: 1 }; // Map priority values to numerical order
+          return priorityOrder[b.priority] - priorityOrder[a.priority];
         } else if (selectedOption === "lowest-priority") {
-          // Sort priority ascending (lowest priority first)
-          return a.priority.localeCompare(b.priority); 
+          // Custom sorting for priorities in reverse order
+          const priorityOrder = { high: 1, normal: 2, low: 3 }; // Map priority values to reversed numerical order
+          return priorityOrder[b.priority] - priorityOrder[a.priority];
         }
         // Add other sorting options if needed
       });
   
       listHabits(habits, habitsList); // Update the UI with sorted habits
-      
     });
   }
 // Filter function based on selected priorities
