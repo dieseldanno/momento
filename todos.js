@@ -301,6 +301,3 @@ function updateLocalStorage () {
 
 filterStatus();
 sortTime();
-
-
-
