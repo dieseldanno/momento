@@ -6,13 +6,9 @@
     <link rel="stylesheet" href="start.css" />
     <link rel="stylesheet" href="todos.css" />
     <script src="start.js" defer></script>
-    <script src="todos.js" defer></script>
     <script src="login.js" defer></script>
-    <scriptsrc=src="https://kit.fontawesome.com/7d4a336cd6.js"
-      crossorigin="anonymous"></scriptsrc=>
-    <title>Start</title>
   </head>
-  <body>  
+  <body>
     <header class="header">
       <nav>
         <ul class="header-menu">
@@ -36,89 +32,6 @@
     <div class="container">
       <h2 id="usernameDisplay"></h2>
     </div>
-    <div class="wrapper hidden-content">
-      <div class="btnContainer">
-        <button id="addBtn">Add Todo +</button>
-      </div>
-      <h1>My Todos</h1>
-      <div class="categoryFilter">
-        <input type="checkbox" name="health" id="Health" value="Health" /><label
-          for="health"
-          >Health</label
-        >
-        <input type="checkbox" id="work" value="Work" /><label for="work"
-          >Work</label
-        >
-        <input type="checkbox" id="home" value="Home & Family" /><label
-          for="home"
-          >Home & Family</label
-        >
-        <input type="checkbox" id="hobbies" value="Hobbies & Leisure" /><label
-          for="hobbies"
-          >Hobbies & Leisure</label
-        >
-      </div>
-      <div class="optionContainer">
-        <label for="statusFilter">Status:</label
-        ><select id="statusFilter">
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="pending">Pending</option>
-        </select>
-        <label for="sortTime">Sort by:</label>
-        <select id="sortTime">
-          <option value="timeAscending">Any</option>
-          <option value="timeAscending">Est.Time (Asc)</option>
-          <option value="timeDescending">Est.Time (Desc)</option>
-          <option value="deadlineAscending">Deadline (Asc)</option>
-          <option value="deadlineDescending">Deadline (Desc)</option>
-        </select>
-      </div>
-      <div id="todosContainer"></div>
-    </div>
-    <div id="myModal" class="modal hidden-content">
-      <div class="modalContent">
-        <span class="close">&times;</span>
-        <h2 id="modalh2">New Todo</h2>
-        <form id="todoForm">
-          <input
-            type="text"
-            id="title"
-            name="title"
-            placeholder="Title"
-            required
-          />
-          <textarea
-            id="description"
-            name="description"
-            placeholder="Description"
-          ></textarea>
-          <div class="modalSelects">
-            <select id="modalCategory" name="modalCategory" required>
-              <option value="" disabled selected hidden>Category</option>
-              <option value="health">Health</option>
-              <option value="work">Work</option>
-              <option value="home">Home & Family</option>
-              <option value="hobbies">Hobbies & Leisure</option>
-            </select>
-            <select id="modalEstTime" name="modalEstTime" required>
-              <option value="" disabled selected hidden>Est.Time</option>
-              <option value="1day">1 day</option>
-              <option value="3days">3 days</option>
-              <option value="1week">1 week</option>
-              <option value="3weeks">3 weeks</option>
-            </select>
-            <input
-              type="date"
-              id="modalDeadline"
-              name="deadline"
-              placeholder="Deadline"
-            />
-          </div>
-          <button id="addNewTodo" type="submit">Add Todo</button>
-        </form>
-      </div>
-    </div>
 
     <!-- Mobile Navigation -->
     <div class="mobile-nav">
@@ -131,7 +44,9 @@
             <a class="mobile-nav-link todo-mobile" href="todos.html">TO DO</a>
           </li>
           <li>
-            <a class="mobile-nav-link habits-mobile" href="habits.html">HABITS</a>
+            <a class="mobile-nav-link habits-mobile" href="habits.html"
+              >HABITS</a
+            >
           </li>
           <li>
             <a class="mobile-nav-link weather-mobile" href="#">WEATHER</a>
