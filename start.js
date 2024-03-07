@@ -34,7 +34,7 @@ const logoutBtn = document.querySelectorAll(".logout-btn");
 
 logoutBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
-    window.location.href = "landing.html";
+    window.location.href = "login.html";
     localStorage.removeItem("userOnline");
   });
 });

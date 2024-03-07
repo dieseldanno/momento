@@ -1,35 +1,41 @@
-* {
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
+.hidden-content {
+    display: none;
 }
 
-body {
-    height: 100vh;
-    width: 100%;
-}
-
-header {
-    height: 4rem;
-}
-
-main {
-    min-height:100vh;
-    width: 100%;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    gap:2rem;
-    background-color: rgb(247, 217, 222);
-}
+@media (min-width: 768px) {
+    * {
+        margin: 0;
+        padding:0;
+        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+    }
+    
+    body {
+        height: 100vh;
+        width: 100%;
+    }
+    
+    header {
+        height: 4rem;
+    }
+    
+    main {
+        min-height:100vh;
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        gap:2rem;
+        background-color: rgb(247, 217, 222);
+    }
 
 .wrapper {
     background-color: aliceblue;
-    min-width: fit-content;
+    width: 50%;
+    margin: 2rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -272,4 +278,5 @@ select {
 
 .category-hobbies-and-leisure {
     background-color: #f7f3c8; 
+}
 }
