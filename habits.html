@@ -16,10 +16,9 @@
 </head>
 <body>
     <main>
-        <div class="container mx-auto m-3 p-3 w-75 border rounded shadow habitContainer">
-            <h2 class="text-center">HABITS</h2>
-            <p></p>
-            <form class="border rounded shadow m-4 p-3 add-habit">
+        <div class="container mx-auto rounded shadow habitContainer">
+            <h2 class="text-center">HABITS ÄNDRAT</h2>
+            <form class="bg-light border rounded shadow m-4 p-3 add-habit">
               <input
                 class="form-control my-3 habit"
                 type="text"
@@ -38,48 +37,54 @@
               <div class="frequency">
                 <label for="timeframe">Frequency: </label>
                 <select class="form-select my-3" name="timeframe" id="timeframe">
-                  <option value="Daily">Daily</option>
-                  <option value="Weekly">Weekly</option>
-                  <option value="Monthly">Monthly</option>
-                  <option value="Yearly">Yearly</option>
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+                  <option value="yearly">Yearly</option>
                 </select>
               </div>
               <div class="priority">
                 <label  for="priority">Priority: </label>
                 <select class="form-select my-3" name="priority" id="priority">
-                  <option value="!">Low  !</option>
-                  <option value="!!">Normal  !!</option>
-                  <option value="!!!">High !!!</option>
+                  <option value="low">Low</option>
+                  <option value="normal">Normal</option>
+                  <option value="high">High</option>
                 </select>
               </div>
               <button class="btn btn-light border shadow" type="submit">Add habit  <i class="fa-solid fa-plus icon-after"></i></button>
             </form>
 
-            <label for="filterHabits">Filter by Priority:</label>
-<div class="filter-container">
-  <input type="checkbox" id="filterAll" value="all" checked>
-  <label for="filterAll">All</label><br>
-  <input type="checkbox" id="filterLow" value="low">
-  <label for="filterLow">Low</label><br>
-  <input type="checkbox" id="filterNormal" value="normal">
-  <label for="filterNormal">Normal</label><br>
-  <input type="checkbox" id="filterHigh" value="high">
-  <label for="filterHigh">High</label>
-</div>
+            <div class=" w-75 mx-auto border shadow rounded d-flex justify-content-between">
+              <div class="filter-container">
+                <label for="filterHabits">Filter by Priority:</label>
+                <input type="checkbox" id="filterAll" value="all" checked>
+                <label for="filterAll">All</label><br>
+                <input type="checkbox" id="filterLow" value="low">
+                <label for="filterLow">Low</label><br>
+                <input type="checkbox" id="filterNormal" value="normal">
+                <label for="filterNormal">Normal</label><br>
+                <input type="checkbox" id="filterHigh" value="high">
+                <label for="filterHigh">High</label>
+              </div>
 
-          </select>
-            <label for="sortHabits">Sort by:</label>
-            <select id="sortHabits">
-              <option value="any">Any</option>
-              <option value="highest-streak">Highest Streak</option>
-              <option value="lowest-streak">Lowest Streak</option>
-              <option value="highest-priority">Highest Priority</option>
-              <option value="lowest-priority">Lowest Priority</option>
-            </select>
+              <div class="sort-container">
+                <label for="sortHabits">Sort by:</label>
+                <select id="sortHabits">
+                  <option value="any">Any</option>
+                  <option value="highest-streak">Highest Streak</option>
+                  <option value="lowest-streak">Lowest Streak</option>
+                  <option value="highest-priority">Highest Priority</option>
+                  <option value="lowest-priority">Lowest Priority</option>
+                </select>
+              </div>
+            
+
+            </div>
+
             <ul class=" border rounded shadow m-4 p-3 habits">
               <li class="text-center">No habits added yet, add you first habit to get startet!</li>
             </ul>
-
+          
             
           </div>
     </main>

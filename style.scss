@@ -7,8 +7,23 @@
 //Så de blir enhetligt 
 //kanske lägga media queries här
 
+
 //OBS style.scss renderar till style.css så vi ska INTE skriva direkt i den css-filen!
 //Bara här eller i egna css filerna :)))))
 
+
+
+
+
+
+
 //Här lägger vi partials till specifik scss, här e min för habits
+
+
+// Just nu döljer jag dom innan css filerna e lösta
+//style.scss är inte inlänkat än i head för login, start o todos
+//just nu e används/ inlänkas egna css för era
+//@import "./_login.scss";
+//@import "./start";
+//@import "./todos"
 @import "./_habits.scss";
