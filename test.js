@@ -35,6 +35,7 @@ function addHabit(e) {
 
 // Function to display habits
 function listHabits(habits = [], habitsList) {
+    habitsList.innerHTML = habits.length === 0 ? "<li class='text-center noHabitsMessage'>No habits added yet, add you first habit to get startet!</li>" :
     habitsList.innerHTML = habits.map((habit, i) => {
       // Generate HTML for each habit
       const disabled = habit.streak === 0 ? "disabled" : ""; // Set disabled class if streak is 0
