@@ -5,6 +5,7 @@ const habits = JSON.parse(localStorage.getItem("habits")) || [];
 const addHabits = document.querySelector(".add-habit");
 const habitsList = document.querySelector(".habits");
 
+//
 listHabits(habits, habitsList);
 // Function to add a new habit
 function addHabit(e) {
@@ -210,12 +211,14 @@ filterCheckboxes.forEach(checkbox => {
 const clearAllFiltersButton = document.getElementById("clearAllFilters");
 clearAllFiltersButton.addEventListener("click", clearAllFilters);
 
+//Function for clearing filters
 function clearAllFilters() {
     const filterCheckboxes = document.querySelectorAll(".filter-container input[type=checkbox]");
     filterCheckboxes.forEach(checkbox => checkbox.checked = false); // Uncheck all checkboxes
     listHabits(habits, habitsList); // Update the habits list to show all habits
 }
 
+//Make icons inherit event from button parent
 function handleIconClicks(event) {
   if (event.target.matches(".fa-solid")) { // Check if clicked element is an icon
     const button = event.target.closest("button"); // Find the closest button
