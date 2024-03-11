@@ -73,6 +73,14 @@ function validateField(field, errorElement, errorMessage) {
   return true;
 }
 
+/////// HÄR ÄR NY KOD /////////
+
+function generateUserId() {
+  const randomValue = Math.random().toString(36).substring(2, 15);
+  return randomValue;
+}
+/////// HÄR ÄR NY KOD /////////
+
 showPasswordLogin.addEventListener("click", () => {
   toggleVisibility(passwordFieldLogin, showPasswordLogin);
 });
@@ -125,9 +133,15 @@ registerBtn.addEventListener("click", (event) => {
     return;
   }
 
+  /////// HÄR ÄR NY KOD /////////
+
   if (!userExist) {
-    users.push({ username, password });
+    const userId = generateUserId();
+    users.push({ userId, username, password });
     localStorage.setItem("users", JSON.stringify(users));
+
+    /////// HÄR ÄR NY KOD /////////
+
     popupSuccess.classList.add("open");
     // console.log(JSON.stringify(users));
     clearInput();
