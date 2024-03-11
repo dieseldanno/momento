@@ -35,6 +35,8 @@ function addHabit(e) {
 
 // Function to display habits
 function listHabits(habits = [], habitsList) {
+
+
     habitsList.innerHTML = habits.length === 0 ? "<li class='text-center noHabitsMessage'>No habits added yet, add you first habit to get startet!</li>" :
     habitsList.innerHTML = habits.map((habit, i) => {
       // Generate HTML for each habit
@@ -47,24 +49,15 @@ function listHabits(habits = [], habitsList) {
             <input type="checkbox" data-index="${i}" id="habit${i}" ${habit.completed ? "checked" : ""} />
           </div>
           <div>Priority: ${habit.priority}</div>
-          <button class="btn btn-light shadow border btn-decrement${disabled}" data-index="${i}" data-streak="${habit.streak}"><i class="fa-solid fa-minus"></i></button>
+          <button class="btn btn-light shadow border btn-decrement ${disabled}" data-index="${i}" data-text="${habit.text}"><i class="fa-solid fa-minus"></i></button>
           <span>${habit.streak}</span>
-          <button class="btn btn-light shadow border btn-increment" data-index="${i}"> <i class="fa-solid fa-plus"></i></button>
-          <button class="btn btn-light shadow border btn-reset ${disabled}" data-index="${i}" data-streak="${habit.streak}"><i class="fa-solid fa-rotate-left"></i></button>
-          <button class="btn bg-danger shadow border delete" data-index="${i}" id="delete${i}"><i class="fa-solid fa-xmark"></i></button>
+          <button class="btn btn-light shadow border btn-increment" data-index="${i}" data-text="${habit.text}"> <i class="fa-solid fa-plus"></i></button>
+           <button class="btn btn-light shadow border btn-reset ${disabled}" data-index="${i}" data-text="${habit.text}"><i class="fa-solid fa-rotate-left"></i></button>
+          <button class="btn bg-danger shadow border delete" data-text="${habit.text}" data-index="${i}" id="delete${i}"><i class="fa-solid fa-xmark"></i></button>
         </li>
       `;
     }).join(""); 
   
-    // Event listener for clicks on habitsList (event delegation)
-    habitsList.addEventListener("click", function (e) {
-      if (e.target.matches(".fa-solid")) { // Check if clicked element is an icon
-        const button = e.target.closest("button"); // Find the closest button
-        if (button) {
-          button.click(); // Trigger the button click
-        }
-      }
-    }); 
   }
 
 // Function to toggle completion status of habit
@@ -94,7 +87,9 @@ function toggleCompleted(e) {
 // Function to update habit streak
 function updateHabitStreak(index, delta) {
   habits[index].streak = Math.max(0, habits[index].streak + delta);
-  listHabits(habits, habitsList); // Update the UI
+  filterHabits()
+  // listHabits(habits, habitsList); // Update the UI
+  console.log("new streak",habits[index].streak)
   localStorage.setItem("habits", JSON.stringify(habits)); // Save habits to localStorage
 }
 
@@ -105,18 +100,20 @@ function handleStreakButtons(e) {
   const el = e.target;
   const index = el.dataset.index;
   const streak = habits[index].streak;
-  
+
+  let currentHabitIndex = habits.findIndex(habit => habit.text === el.dataset.text)
+  console.log(currentHabitIndex);
   if (el.classList.contains("btn-increment")) {
-    updateHabitStreak(index, 1); // Increment streak
+    updateHabitStreak(currentHabitIndex, 1); // Increment streak
   } else if (el.classList.contains("btn-decrement")) {
     if (streak > 0) { // Update streak if streak > 0
-      updateHabitStreak(index, -1);
+      updateHabitStreak(currentHabitIndex, -1);
     }
   } else if (el.classList.contains("btn-reset")) {
     if (streak > 0) { // Reset streak if streak > 0
       el.classList.remove("disabled"); // Remove disabled class
       habits[index].streak = 0;
-      updateHabitStreak(index, 0);
+      updateHabitStreak(currentHabitIndex, 0);
     }
   }
   e.stopPropagation(); // Prevent event bubbling
@@ -147,11 +144,15 @@ function deleteHabit(e) {
   if (!e.target.matches("button")) return;
   
   const el = e.target;
-  const index = el.dataset.index;
+  const text = el.dataset.text; // Get the text of the habit to delete
   
-  habits.splice(index, 1); // Remove habit from the array
-  listHabits(habits, habitsList); // Update habit list
-  localStorage.setItem("habits", JSON.stringify(habits)); // Save habits to localStorage
+  const index = habits.findIndex(habit => habit.text === text); // Find the index of the habit with the matching text
+  
+  if (index !== -1) {
+    habits.splice(index, 1); // Remove habit from the array
+    filterHabits(habits, habitsList); // Update habit list
+    localStorage.setItem("habits", JSON.stringify(habits)); // Save habits to localStorage
+  }
 }
 
 function sortHabits() {
@@ -215,19 +216,18 @@ function clearAllFilters() {
     listHabits(habits, habitsList); // Update the habits list to show all habits
 }
 
-
-// Select all buttons
-const buttons = document.querySelectorAll('button');
-
-// For each button, make its icon trigger the button's click event
-buttons.forEach(button => {
-  button.addEventListener('click', (event) => {
-    // Check if the clicked element is an icon within the button
-    if (event.target.tagName.toLowerCase() === 'i') {
-      button.click(); // Trigger the button's click event
+function handleIconClicks(event) {
+  if (event.target.matches(".fa-solid")) { // Check if clicked element is an icon
+    const button = event.target.closest("button"); // Find the closest button
+    if (button) {
+      button.click(); // Trigger the button click
     }
-  });
-});
+  }
+}
+
+// Event listener for clicks on habitsList (event delegation)
+habitsList.addEventListener("click", handleIconClicks);
+
 
 // Update habits list and sort initially
 listHabits(habits, habitsList);
