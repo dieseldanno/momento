@@ -20,13 +20,13 @@ const userLoginError = document.querySelector(".user-error-login");
 const userRegError = document.querySelector(".user-error-reg");
 const passLoginError = document.querySelector(".password-error-login");
 const passRegError = document.querySelector(".password-error-reg");
-
-let users = JSON.parse(localStorage.getItem("users")) || [];
-
 const showPasswordLogin = document.querySelector("#show-password-login");
 const showPasswordReg = document.querySelector("#show-password-reg");
 const passwordFieldLogin = document.querySelector("#password-login");
 const passwordFieldReg = document.querySelector("#password-reg");
+
+let users = JSON.parse(localStorage.getItem("users")) || [];
+const quoteLength = 100; // Ny kod
 
 function clearInput() {
   let inputField = document.querySelectorAll(
@@ -36,13 +36,20 @@ function clearInput() {
   inputField.forEach((field) => (field.value = ""));
 }
 
+// Ny kod
 async function getQuote() {
   try {
     const response = await axios.get("https://api.quotable.io/random");
     const results = response.data;
-    randomQuote.textContent = results.content;
-    randomAuthor.textContent = `- ${results.author}`;
-    return results;
+
+    // Check quote length
+    if (results.content.length < quoteLength) {
+      randomQuote.textContent = results.content;
+      randomAuthor.textContent = `- ${results.author}`;
+      return results;
+    } else {
+      return getQuote();
+    }
   } catch (error) {
     console.log("Error:", error);
   }
