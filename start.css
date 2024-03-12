@@ -10,7 +10,7 @@ body {
   font-style: normal;
   background-color: white;
   color: black;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .header {
@@ -29,6 +29,10 @@ body {
   display: none;
 }
 
+.hidden {
+  display: none;
+}
+
 #menu-bars {
   color: black;
   background-color: white;
@@ -44,6 +48,7 @@ body {
   justify-content: center;
   /* border: 1px solid red; */
 }
+
 
 .container {
   display: flex;
@@ -72,6 +77,10 @@ a {
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.1em;
+}
+
+.btn:hover {
+  cursor: pointer;
 }
 
 .todo {
@@ -168,6 +177,7 @@ a {
 }
 
 @media (min-width: 768px) {
+  
   .header-menu {
     display: flex;
     justify-content: space-between;
@@ -213,4 +223,31 @@ a {
   .logout-btn:hover {
     background-color: #b074ff;
   }
+
+  .hidden {
+      display: block;
+  }
+
+  .main {
+      height: 70%;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .ctaContainer {
+      height: 70%;
+      width: 100%;
+      background-color: lavender;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap:2rem;
+      margin-bottom: auto;
+    }
+
+    .hiddenDesktop {
+      display:none;
+    }
 }

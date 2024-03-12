@@ -17,9 +17,12 @@
     />
     <link rel="stylesheet" href="todos.css" />
     <script src="todos.js" defer></script>
+    <script src="start.js" defer></script>
   </head>
   <body>
-    <header></header>
+    <header>
+      <a href="start.html">BACK</a>
+    </header>
     <main>
       <div class="wrapper">
         <div class="btnContainer">
@@ -27,6 +30,7 @@
         </div>
         <h1>My Todos</h1>
         <div class="categoryFilter">
+          <span>Filter:</span>
           <input
             type="checkbox"
             name="health"
@@ -36,11 +40,10 @@
           <input type="checkbox" id="work" value="Work" /><label for="work"
             >Work</label
           >
-          <input type="checkbox" id="home" value="Home & Family" /><label
-            for="home"
+          <input type="checkbox" id="home" value="Home" /><label for="home"
             >Home & Family</label
           >
-          <input type="checkbox" id="hobbies" value="Hobbies & Leisure" /><label
+          <input type="checkbox" id="hobbies" value="Hobbies" /><label
             for="hobbies"
             >Hobbies & Leisure</label
           >
@@ -83,17 +86,17 @@
             <div class="modalSelects">
               <select id="modalCategory" name="modalCategory" required>
                 <option value="" disabled selected hidden>Category</option>
-                <option value="health">Health</option>
-                <option value="work">Work</option>
-                <option value="home">Home & Family</option>
-                <option value="hobbies">Hobbies & Leisure</option>
+                <option value="Health">Health</option>
+                <option value="Work">Work</option>
+                <option value="Home">Home</option>
+                <option value="Hobbies">Hobbies</option>
               </select>
               <select id="modalEstTime" name="modalEstTime" required>
                 <option value="" disabled selected hidden>Est.Time</option>
-                <option value="1day">1 day</option>
-                <option value="3days">3 days</option>
-                <option value="1week">1 week</option>
-                <option value="3weeks">3 weeks</option>
+                <option value="1 day">1 day</option>
+                <option value="3 days">3 days</option>
+                <option value="1 week">1 week</option>
+                <option value="3 weeks">3 weeks</option>
               </select>
               <input
                 type="date"
@@ -102,7 +105,8 @@
                 placeholder="Deadline"
               />
             </div>
-            <button id="addNewTodo" type="submit">Add Todo</button>
+            <button id="addNewTodo" type="button">Add Todo</button>
+            <button id="saveTodo" type="button">Save</button>
           </form>
         </div>
       </div>

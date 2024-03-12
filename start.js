@@ -38,3 +38,13 @@ logoutBtn.forEach((btn) => {
     localStorage.removeItem("userOnline");
   });
 });
+
+let desktopTodosBtn = document.getElementById("startTodosBtn"); 
+let desktopHabitsBtn = document.getElementById("startHabitsBtn"); 
+
+desktopTodosBtn.addEventListener('click', () => {
+window.location.href = "todos.html";
+});
+desktopTodosBtn.addEventListener('click', () => {
+window.location.href = "habits.html";
+});
