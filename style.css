@@ -20,10 +20,10 @@ main {
 
 @media (min-width: 1200px) {
   .habitContainer {
-    max-width: 50%;
+    max-width: 100%;
   }
 }
 main {
   max-width: 50%;
-  padding: 30%;
+  padding: 30px;
 }/*# sourceMappingURL=style.css.map */
