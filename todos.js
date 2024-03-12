@@ -13,13 +13,18 @@ let todosContainer = document.getElementById('todosContainer');
 // Array för att lagra alla todos
  let todoStorage = [];
 
+/////// HÄR ÄR NY KOD /////////
 window.addEventListener("load", () => {
-    todoStorage = JSON.parse(localStorage.getItem("todos") || []);
-
-    todoStorage.forEach(todo => {
-        renderTodos(todo)
+    let loggedInUserId = JSON.parse(localStorage.getItem("userOnline")).userId;
+    todoStorage = JSON.parse(localStorage.getItem("todos")) || [];
+  
+    let userTodos = todoStorage.filter((todo) => todo.userId === loggedInUserId);
+  
+    userTodos.forEach((todo) => {
+      renderTodos(todo);
     });
-});
+  });
+  /////// HÄR ÄR NY KOD /////////
 
 console.log(todoStorage);
   
@@ -69,17 +74,24 @@ todoForm.addEventListener('submit', function (event) {
     let isDoneCheckbox = document.createElement("input");
     isDoneCheckbox.type = "checkbox";
 
-    let todo  = {
-        title, 
-        description,
-        categoryIndex,
-        category,
-        estTimeIndex,
-        estTime,
-        deadline,
-        isDoneCheckbox,
-        isChecked:false,
-    };
+    /////// HÄR ÄR NY KOD /////////
+
+  let userId = JSON.parse(localStorage.getItem("userOnline")).userId;
+
+  let todo = {
+    userId,
+    title,
+    description,
+    categoryIndex,
+    category,
+    estTimeIndex,
+    estTime,
+    deadline,
+    isDoneCheckbox,
+    isChecked: false,
+  };
+
+  /////// HÄR ÄR NY KOD /////////
 
 
     renderTodos(todo);
