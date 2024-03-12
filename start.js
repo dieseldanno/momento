@@ -45,6 +45,6 @@ let desktopHabitsBtn = document.getElementById("startHabitsBtn");
 desktopTodosBtn.addEventListener('click', () => {
 window.location.href = "todos.html";
 });
-desktopTodosBtn.addEventListener('click', () => {
+desktopHabitsBtn.addEventListener('click', () => {
 window.location.href = "habits.html";
 });

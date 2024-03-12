@@ -12,10 +12,13 @@
 body {
     height: 100vh;
     width: 100%;
+    background-color: rgb(247, 217, 222);
 }
 
 header {
-    height: 4rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
 }
 
 main {
@@ -25,7 +28,6 @@ main {
     display: flex;
     justify-content: center;
     gap:2rem;
-    background-color: rgb(247, 217, 222);
 }
 
 .wrapper {
