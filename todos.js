@@ -1,241 +1,235 @@
 
 // Variabler för Add Todo-modal
-let addBtn = document.getElementById("addBtn");
-let modal = document.getElementById("myModal");
-let close = document.getElementsByClassName("close")[0];
+let addBtn = document.getElementById('addBtn');
+let modal = document.getElementById('myModal');
+let addNewTodoBtn = document.getElementById('addNewTodo');
+let saveBtn = document.getElementById('saveTodo');
+let close = document.getElementsByClassName('close')[0];
 
 // Formulär för att lägga till todo
 let todoForm = document.getElementById('todoForm');
 
-// Container för alla todos
+// Container för alla todos i DOM
 let todosContainer = document.getElementById('todosContainer');
 
 // Array för att lagra alla todos
- let todoStorage = [];
+let todoStorage = [];
 
-/////// HÄR ÄR NY KOD /////////
-window.addEventListener("load", () => {
-    let loggedInUserId = JSON.parse(localStorage.getItem("userOnline")).userId;
-    todoStorage = JSON.parse(localStorage.getItem("todos")) || [];
-  
-    let userTodos = todoStorage.filter((todo) => todo.userId === loggedInUserId);
-  
-    userTodos.forEach((todo) => {
-      renderTodos(todo);
-    });
-  });
-  /////// HÄR ÄR NY KOD /////////
+init();
 
-console.log(todoStorage);
-  
-
-addBtn.addEventListener("click", addTodo);
-
-// Funktion för att lägga till en ny todo
-function addTodo() {
-    todoForm.reset();
-    modal.style.display = "block";
-    modalh2.innerText = "New todo";
-    saveBtn.innerText = "Add Todo";
-}
-
-// Funktion för att stänga modalen
-close.onclick = function() {
-    modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-    if (event.target == modal) {
-    modal.style.display = "none";
-    }
-};
-
-function closeModal (){
-    modal.style.display = "none";
-}
-
-// Lyssnare för att lägga till todo när formuläret skickas
-todoForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    let title = todoForm.title.value;
-    let description = todoForm.description.value;
-
-    let categoryIndex = todoForm.modalCategory.selectedIndex; 
-    let categoryIndexText = todoForm.modalCategory.options[categoryIndex].textContent; 
-    let category = categoryIndexText;
-
-    let estTimeIndex = todoForm.modalEstTime.selectedIndex;
-    let estTimeIndexText = todoForm.modalEstTime.options[estTimeIndex].textContent;
-    let estTime = estTimeIndexText
-    let deadline = todoForm.modalDeadline.value;
-    // let deadline = new Date(todoForm.modalDeadline.value);
-
-    let isDoneCheckbox = document.createElement("input");
-    isDoneCheckbox.type = "checkbox";
-
-    /////// HÄR ÄR NY KOD /////////
-
-  let userId = JSON.parse(localStorage.getItem("userOnline")).userId;
-
-  let todo = {
-    userId,
-    title,
-    description,
-    categoryIndex,
-    category,
-    estTimeIndex,
-    estTime,
-    deadline,
-    isDoneCheckbox,
-    isChecked: false,
-  };
-
-  /////// HÄR ÄR NY KOD /////////
-
-
-    renderTodos(todo);
-
-    todoForm.reset();
-
-    closeModal();
+// Lägg till lyssnare för att visa modalen när knappen klickas
+addBtn.addEventListener('click', () => {
+  todoForm.reset();
+  modal.style.display = 'block';
+  modalh2.innerText = 'New todo';
+  saveBtn.style.display = "none";
+  addNewTodoBtn.style.display = 'block';
 });
 
-
-//Funktion för att rendera en todo
-function renderTodos(todo) {
-    let todoItem = createTodoElement(todo);
-    appendTodoElement(todoItem);
-    console.log(todo);
-    // Jämför todo med innehåll i array, om den inte redan finns, lägg till todo och uppdatera localStorage.
-    let existingTodoIndex = todoStorage.findIndex(item => JSON.stringify(item) === JSON.stringify(todo));
-    if (existingTodoIndex === -1) {
-        todoStorage.push(todo);
-        localStorage.setItem("todos", JSON.stringify(todoStorage));
-    }
-    console.log(todoStorage);
+// Funktion för att stänga modalen
+close.onclick = function () {
+  modal.style.display = 'none';
 };
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+};
+
+// Funktion för att lägga till todo när formuläret skickas
+addNewTodoBtn.addEventListener('click', () => {
+  let userId = JSON.parse(localStorage.getItem("userOnline")).userId;
+
+  //Skapa todo-objekt 
+    let todo = {
+        userId,
+        title: '',
+        description: '',
+        category: '',
+        estTime: '',
+        estTimeIndex: '',
+        deadline: '',
+        isDoneCheckbox: null,
+        isChecked: false,
+      };
+  // Uppdatera todo-objektet baserat på användarens inmatning
+  
+  todo.title = todoForm.title.value;
+  todo.description = todoForm.description.value;
+  todo.category = todoForm.modalCategory.value;
+  todo.estTime = todoForm.modalEstTime.value;
+  todo.estTimeIndex = todoForm.modalEstTime.selectedIndex;
+  todo.deadline = todoForm.modalDeadline.value;
+  todo.isDoneCheckbox = document.createElement('input');
+  todo.isDoneCheckbox.type = 'checkbox';
+
+  // Skapa todo-elementet och lägg till det i DOM:en
+  let todoItem = createTodoElement(todo);
+  appendTodoElement(todoItem);
+
+  // Lägg till det nya todo-objektet i todoStorage och uppdatera localStorage
+  todoStorage.push(todo);
+  localStorage.setItem('todos', JSON.stringify(todoStorage));
+  console.log(todoStorage);
+
+  // Återställ formuläret och stäng modalen
+  todoForm.reset();
+});
+console.log(todoStorage);
 
 // Funktion för att skapa DOM-element för en todo
 function createTodoElement(todo) {
-    let todoItem = document.createElement("div");
-    todoItem.classList.add("todo-item");
-    todoItem.classList.add(`category-${todo.category.toLowerCase().replace("&", "and").replace(/\s+/g, "-")}`);
-    todoItem.innerHTML = `
+  let todoItem = document.createElement('div');
+  todoItem.classList.add('todo-item');
+  todoItem.todo = todo;
+  todoItem.classList.add(`category-${todo.category.toLowerCase().replace("&", "and").replace(/\s+/g, "-")}`);
+  todoItem.innerHTML = `
         <h3>${todo.title}</h3>
         <p class="description">${todo.description}</p>
         <p class="category">Category: ${todo.category}</p>
         <p class="estTime">Time: ${todo.estTime}</p>
         <p class="deadline">Deadline: ${todo.deadline}</p>
     `;
-    console.log(todoItem);
 
-    // Knappar, checkbox och label 
-    let editBtn = document.createElement('button');
-    editBtn.innerHTML = '<i class="far fa-pen-to-square"></i>';
-    editBtn.addEventListener('click', () => {
-            modal.style.display = "block";
-            let modalh2 = document.querySelector('#modalh2');
-            modalh2.innerText = "Edit Todo";
-        
-            saveBtn = document.querySelector('#addNewTodo');
-            saveBtn.innerText = "Save";
-        
-            // let todoItem = event.currentTarget.parentElement;
-            let todoTitle = todoItem.querySelector('h3').innerText;
-            let todoDescription = todoItem.querySelector('p').innerText;
-            let todoCategory = todo.categoryIndex;
-            let todoEstTime = todo.estTimeIndex;
-            let todoDeadline = todo.deadline;
-            
-            console.log(todoCategory, todoEstTime);
-            todoForm.title.value = todoTitle;
-            todoForm.description.value = todoDescription;
-            todoForm.modalCategory.selectedIndex = todoCategory;
-            todoForm.modalEstTime.selectedIndex = todoEstTime;
-            todoForm.modalDeadline.value = todoDeadline;
-        
+  // Knappar, checkbox och label
+  let editBtn = document.createElement('button');
+  editBtn.innerHTML = '<i class="far fa-pen-to-square"></i>';
+  editBtn.addEventListener('click', (event) => {
+    modal.style.display = 'block';
+    saveBtn.style.display = 'block';
+    addNewTodoBtn.style.display = 'none';
+    let modalh2 = document.querySelector('#modalh2');
+    modalh2.innerText = 'Edit Todo';
+    let todoItem = event.currentTarget.parentElement;
+    currentEditedTodoItem = todoItem;
+    let todoToEdit = todoItem.todo;
 
-        saveBtn.addEventListener("click", () => {
-            todoItem.remove();
-            // Uppdatera todo-objektet med nya värden från formuläret
-            todo.title = todoForm.title.value;
-            todo.description = todoForm.description.value;
-            todo.categoryIndex = todoForm.modalCategory.selectedIndex;
-            todo.estTimeIndex = todoForm.modalEstTime.selectedIndex;
-            todo.deadline = todoForm.modalDeadline.value;
-        
-            // Uppdatera todo-elementet i DOM
-            todoItem.querySelector('h3').innerText = todo.title;
-            todoItem.querySelector('p.description').innerText = todo.description;
-        
-            //Hitta index för den befintliga todon i todoStorage
-            let indexToRemove = todoStorage.findIndex(item => item === todo);
-        
-            // Ersätt den befintliga todon med den uppdaterade versionen
-            todoStorage.splice(indexToRemove, 1);
-                    
-            // Rendera todos
-            renderTodos();
-            // Ta bort modal och återställ formuläret
-            modal.style.display = "none";
-            todoForm.reset();
-        });
-    });
+    let todoTitle = todoItem.querySelector('h3').innerText;
+    let todoDescription = todoItem.querySelector('p').innerText;
+    let todoCategory = todo.category;
+    let todoEstTime = todo.estTime;
+    let todoDeadline = todo.deadline;
 
-        
-        let deleteBtn = document.createElement('button');
-        deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
-        deleteBtn.addEventListener('click', () => {
-            let indexToRemove = todoStorage.findIndex(item => item === todo);
-            // Ta bort todo från todoStorage-listan
-            todoStorage.splice(indexToRemove, 1);
-            todoItem.remove();
-            updateLocalStorage();
-            console.log(todoStorage); 
-        });
+    todoForm.title.value = todoTitle;
+    todoForm.description.value = todoDescription;
+    todoForm.modalCategory.value = todoCategory;
+    todoForm.modalEstTime.value = todoEstTime;
+    todoForm.modalDeadline.value = todoDeadline;
+  });
 
-    let isDoneCheckbox = document.createElement('input');
-    isDoneCheckbox.type = "checkbox";
-    isDoneCheckbox.id = "isDoneCheckbox";
-    isDoneCheckbox.checked = todo.isChecked;
-    if (todo.isChecked) {
-        todoItem.classList.add("isDone");
-      } else {
-        todoItem.classList.remove("isDone");
-      };
+  let deleteBtn = document.createElement('button');
+  deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
+  deleteBtn.addEventListener('click', () => {
+    let indexToRemove = todoStorage.findIndex((item) => item === todo);
+    // Ta bort todo från todoStorage-listan
+    todoStorage.splice(indexToRemove, 1);
+    todoItem.remove();
+    updateLocalStorage();
+    console.log(todoStorage);
+  });
 
-    let isDoneLabel = document.createElement('label');
+  // Skapa element för att ändra status av todo
+  let isDoneCheckbox = document.createElement('input');
+  isDoneCheckbox.type = 'checkbox';
+  isDoneCheckbox.id = 'isDoneCheckbox';
+  isDoneCheckbox.checked = todo.isChecked;
+  if (todo.isChecked) {
+    todoItem.classList.add('isDone');
+  } else {
+    todoItem.classList.remove('isDone');
+  }
+
+  let isDoneLabel = document.createElement('label');
     isDoneLabel.htmlFor = "isDoneCheckbox";
-    isDoneLabel.innerText = "Done";
+    isDoneLabel.innerText = "Completed";
 
-    // Lyssnare för checkbox
-    isDoneCheckbox.addEventListener("change", () => {
-        todo.isChecked = isDoneCheckbox.checked;
-        todoItem.classList.toggle("isDone", isDoneCheckbox.checked);
-        updateLocalStorage();
-    });
+  // Lyssnare för checkbox, toggla status
+  isDoneCheckbox.addEventListener('change', () => {
+    todo.isChecked = isDoneCheckbox.checked;
+    todoItem.classList.toggle('isDone', isDoneCheckbox.checked);
+    updateLocalStorage();
+  });
 
-    // Lägg till knappar, checkbox och label till todo-elementet
-    todoItem.append(editBtn, deleteBtn, isDoneCheckbox, isDoneLabel);
+  // Lägg till knappar, checkbox och label till todo-elementet
+  todoItem.append(editBtn, deleteBtn, isDoneCheckbox, isDoneLabel);
 
-     return todoItem;
-    };
+  return todoItem;
+}
 
 // Funktion för att lägga till todo-element i DOM
 function appendTodoElement(todoItem) {
-    todosContainer.append(todoItem);
+  todosContainer.append(todoItem);
 }
 
-// Funktion för att sortera todos efter tid
+// Funktion för att uppdatera localStorage
+function updateLocalStorage() {
+  localStorage.setItem('todos', JSON.stringify(todoStorage));
+}
+
+// Funktion för att initiera programmet
+function init() {
+  loggedInUserId = JSON.parse(localStorage.getItem("userOnline")).userId;
+
+  // Ladda todos från localStorage och rendera dem
+  if (localStorage.getItem('todos')) {
+    todoStorage = JSON.parse(localStorage.getItem('todos'));
+     // 3. Filter todos based on loggedInUserId
+    userTodos = todoStorage.filter((todo) => todo.userId === loggedInUserId);
+
+    userTodos.forEach((todo) => {
+      let todoItem = createTodoElement(todo);
+      appendTodoElement(todoItem);
+    });
+  }
+}
+
+// Initiera programmet
+// init();
+
+// Eventlyssnare for saveBtn
+saveBtn.addEventListener('click', () => {
+  console.log('currentEditedTodoItem:', currentEditedTodoItem);
+  console.log("körs");
+  if (currentEditedTodoItem) {
+    //hämta todo-objektet kopplat till den aktuella todon
+    let todoToEdit = currentEditedTodoItem.todo;
+    console.log('todoToEdit:', todoToEdit);
+
+    //upppdatera egenskaperna för todo-objektet baserat på användarens inmatning i modalformuläret
+    todoToEdit.title = todoForm.title.value;
+    todoToEdit.description = todoForm.description.value;
+    todoToEdit.category = todoForm.modalCategory.value;
+    todoToEdit.estTime = todoForm.modalEstTime.value;
+    todoToEdit.deadline = todoForm.modalDeadline.value;
+
+    //uppdatera den motsvarande todo-posten i gränssnittet för att återspegla de gjorda ändringarna
+    currentEditedTodoItem.querySelector('h3').innerText = todoToEdit.title;
+    currentEditedTodoItem.querySelector('.description').innerText = todoToEdit.description;
+    currentEditedTodoItem.querySelector('.category').innerText = `Category: ${todoToEdit.category}`;
+    currentEditedTodoItem.querySelector('.estTime').innerText = `Time: ${todoToEdit.estTime}`;
+    currentEditedTodoItem.querySelector('.deadline').innerText = `Deadline: ${todoToEdit.deadline}`;
+    currentEditedTodoItem.classList.add(`category-${todoToEdit.category.toLowerCase().replace("&", "and").replace(/\s+/g, "-")}`);
+
+    //uppdatera localStorage för att spara ändringarna
+    updateLocalStorage();
+    //stäng modalen och återställ formuläret
+    saveBtn.style.display = 'none';
+    modal.style.display = 'none';
+    todoForm.reset();
+  }
+});
+
 function sortTime() {
+
     let timeSelect = document.getElementById('sortTime');
     timeSelect.addEventListener('change', (event) => {
         let selectedOption = event.target.value;
         todosContainer.innerHTML = "";
+        console.log(todoStorage);
 
 
-        todoStorage.sort(function(a, b){
+        userTodos.sort(function(a, b){
             let deadlineA = new Date(a.deadline);
             let deadlineB = new Date(b.deadline);
             if (selectedOption === 'timeAscending')
@@ -247,13 +241,17 @@ function sortTime() {
                 else if (selectedOption === 'deadlineDescending') 
                     return deadlineB - deadlineA;
         });
-        todoStorage.forEach(todoItem => {
+
+        userTodos.forEach(todoItem => {
             let todoElement = createTodoElement(todoItem);
             appendTodoElement(todoElement);
             
         });
     });
 }
+
+
+
 
 // Funktion för att filtrera todos baserat på status
 function filterStatus() {
@@ -306,10 +304,9 @@ document.querySelectorAll('.categoryFilter input[type="checkbox"]').forEach(chec
     checkbox.addEventListener('change', filterByCategory);
 });
 
-function updateLocalStorage () {
-    todoStorage = todoStorage.filter(todo => todo !== null);
-    localStorage.setItem("todos", JSON.stringify(todoStorage));
-};
 
 filterStatus();
 sortTime();
+function updateLocalStorage () {
+    localStorage.setItem("todos", JSON.stringify(todoStorage));
+};
