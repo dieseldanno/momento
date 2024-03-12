@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 .habits li {
@@ -10,15 +11,19 @@
   background: lavender;
 }
 
-i {
-  cursor: pointer;
-  pointer-events: inherit;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn-decrement:disabled,
-.btn-reset:disabled {
-  opacity: 0.2; /* Set opacity to 0.5 for a greyed-out effect */
-  cursor: not-allowed; /* Change cursor to indicate disabled state */
-  pointer-events: none; /* Prevent clicks and other user interactions */
-  color: white;
+@media (min-width: 1200px) {
+  .habitContainer {
+    max-width: 50%;
+  }
+}
+main {
+  max-width: 50%;
+  padding: 30%;
 }/*# sourceMappingURL=style.css.map */
