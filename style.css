@@ -21,7 +21,6 @@ main {
 @media (min-width: 1200px) {
   .habitContainer {
     max-width: 100%;
-    align-items: center;
   }
 }
 main {
