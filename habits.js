@@ -78,7 +78,7 @@ function listHabits(habits = [], habitsList) {
             }"><i class="fa-solid fa-rotate-left"></i></button>
           <button class="btn bg-danger shadow border delete" data-text="${
             habit.text
-          }" data-index="${i}" id="delete${i}"><i class="fa-solid fa-xmark"></i></button>
+          }" data-index="${i}" id="delete${i}"><i class="fa-solid fa-trash-can"></i></button>
         </li>
       `;
           })
