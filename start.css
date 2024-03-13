@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Anta", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
   background-color: white;
@@ -56,7 +56,7 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 3em;
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 a {
@@ -72,7 +72,7 @@ a {
 
 .btn {
   color: #2b2b2b;
-  border-radius: 20px;
+  border-radius: 6px;
   padding: 12px 25px;
   font-size: 36px;
   font-weight: 700;
@@ -86,12 +86,12 @@ a {
 
 .todo,
 .todoBtn {
-  background-color: #fdd1d1;
+  background-color: #add8e6;
 }
 
 .habits,
 .habitsBtn {
-  background-color: #ffc79f;
+  background-color: #e0d3fc;
 }
 
 .weather {
@@ -99,11 +99,11 @@ a {
 }
 
 .pomodoro {
-  background-color: #a1eeff;
+  background-color: #efffa1;
 }
 
 .calendar {
-  background-color: #cda7ff;
+  background-color: #ffe1e9;
 }
 
 .mobile-nav {
@@ -138,7 +138,7 @@ a {
   letter-spacing: 0.05em;
   transition: color 0.3s;
   padding: 5px 30px;
-  border-radius: 20px;
+  border-radius: 6px;
 }
 
 .desktop-line {
@@ -147,24 +147,24 @@ a {
 }
 
 .logout-btn {
-  color: #2b2b2b;
-  background-color: #cda7ff;
-  border-radius: 20px;
+  color: #121212;
+  background-color: #cacaca;
+  border-radius: 6px;
   padding: 10px 20px;
   font-weight: 700;
   letter-spacing: 0.1em;
 }
 
 .start-mobile:active {
-  background-color: #ffa7d3;
+  background-color: #ff9a9a;
 }
 
 .todo-mobile:active {
-  background-color: #fdd1d1;
+  background-color: #add8e6;
 }
 
 .habits-mobile:active {
-  background-color: #ffc79f;
+  background-color: #e0d3fc;
 }
 
 .weather-mobile:active {
@@ -172,11 +172,15 @@ a {
 }
 
 .pomodoro-mobile:active {
-  background-color: #a1eeff;
+  background-color: #efffa1;
 }
 
 .calendar-mobile:active {
-  background-color: #cda7ff;
+  background-color: #ffe1e9;
+}
+
+.wrapper-calendar {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -197,19 +201,31 @@ a {
   .header-link {
     padding: 7px 10px;
     font-weight: 700;
-    border-radius: 20px;
+    border-radius: 6px;
+  }
+
+  .start-desktop:hover {
+    background-color: #ff9a9a;
+  }
+
+  .todo-desktop:hover {
+    background-color: #add8e6;
+  }
+
+  .habits-desktop:hover {
+    background-color: #e0d3fc;
   }
 
   .weather-desktop:hover {
-    background-color: #ffa7d3;
+    background-color: #d9ffa9;
   }
 
   .pomodoro-desktop:hover {
-    background-color: #a9d7ff;
+    background-color: #efffa1;
   }
 
   .calendar-desktop:hover {
-    background-color: #d9ffa9;
+    background-color: #ffe1e9;
   }
 
   .desktop-line {
@@ -223,7 +239,7 @@ a {
   }
 
   .logout-btn:hover {
-    background-color: #b074ff;
+    background-color: #938f8f;
   }
 
   .hidden {
@@ -238,15 +254,27 @@ a {
     justify-content: center;
   }
 
+  #usernameDisplay {
+    margin-bottom: 15px;
+  }
+
   .ctaContainer {
     height: 70%;
     width: 100%;
-    background-color: lavender;
+    background-color: rgba(238, 238, 238, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
     margin-bottom: auto;
+  }
+
+  .todoBtn:hover {
+    background-color: #76abbd;
+  }
+
+  .habitsBtn:hover {
+    background-color: #a38fce;
   }
 
   .hiddenDesktop {
