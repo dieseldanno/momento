@@ -1,5 +1,5 @@
 // Retrieve habits from localStorage or initialize empty array
-const habits = JSON.parse(localStorage.getItem("habits")) || [];
+let habits = JSON.parse(localStorage.getItem("habits")) || [];
 
 // Selecting DOM elements
 const addHabits = document.querySelector(".add-habit");
@@ -20,7 +20,7 @@ function addHabit(e) {
   const userOnlineData = localStorage.getItem("userOnline");
   const loggedInUserId = JSON.parse(userOnlineData).userId;
 
-  let habits = JSON.parse(localStorage.getItem("habits")) || [];
+  habits = JSON.parse(localStorage.getItem("habits")) || [];
 
   // Creating a new habit object
   let habit = {
