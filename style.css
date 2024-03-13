@@ -22,8 +22,7 @@ main {
   .habitContainer {
     max-width: 100%;
   }
-}
-main {
-  max-width: 50%;
-  padding: 30px;
+  main {
+    max-width: 50%;
+  }
 }/*# sourceMappingURL=style.css.map */
