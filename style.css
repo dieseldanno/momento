@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Anta", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
   background-color: white;
@@ -301,6 +301,11 @@ main {
   justify-content: center;
   margin: 2rem;
   padding: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: white;
+  color: black;
 }
 
 h1, h2, h3 {
@@ -313,6 +318,12 @@ h1, h2, h3 {
 
 .habitContainer {
   background: rgb(224, 211, 252);
+}
+
+.btn {
+  border-radius: 6 px;
+  border: border 1px solid black;
+  font-weight: 500;
 }
 
 @media (min-width: 1200px) {
