@@ -111,28 +111,33 @@ input::placeholder {
   font-weight: bold;
 }
 
-.btn {
+#loginBtn,
+#registerBtn {
   font-weight: 600;
   text-decoration: none;
   letter-spacing: 0.025em;
   background-color: #fff;
-  color: rgb(203, 0, 0);
+  color: rgb(34, 34, 34);
   padding: 0.3rem 3rem;
   border-radius: 6px;
-  border: 1px solid rgb(203, 0, 0);
+  border: 1px solid rgb(34, 34, 34);
   cursor: pointer;
 }
 
-.btn:active {
-  background-color: rgb(203, 0, 0);
-  color: white;
+#loginBtn:active,
+#registerBtn:active {
+  background-color: #c07c98;
 }
 
-a {
+.register-login-link {
   text-decoration: none;
   color: black;
   font-weight: 600;
   letter-spacing: 0.05rem;
+}
+
+.register-login-link:active {
+  color: #3a3a3a;
 }
 
 .popup-success {
@@ -156,11 +161,11 @@ a {
 }
 
 .success-inner {
-  background-color: #7ccf55;
+  background-color: white;
   border-radius: 5px;
-  box-shadow: 0 1px 4px rgb(93, 199, 116);
+  border: 4px solid rgb(93, 199, 116);
   margin: 10px;
-  padding: 45px;
+  padding: 15px 25px 20px;
   width: 380px;
   text-align: center;
   display: flex;
@@ -171,6 +176,25 @@ a {
 .success-inner h3 {
   margin: 15px;
   /* font-style: italic; */
+}
+
+#proceed-login,
+.continue-btn {
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.025em;
+  background-color: #fff;
+  color: rgb(34, 34, 34);
+  padding: 0.3rem 3rem;
+  border-radius: 6px;
+  border: 1px solid rgb(34, 34, 34);
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+#proceed-login:active,
+.continue-btn:active {
+  background-color: #5cb85c;
 }
 
 .popup-quote {
@@ -196,7 +220,7 @@ a {
 .popup-inner {
   background-color: #ffffff;
   border-radius: 5px;
-  box-shadow: 0 1px 4px rgb(93, 199, 116);
+  border: 4px solid rgb(93, 199, 116);
   margin: 10px;
   padding: 15px 25px 20px;
   width: 380px;
@@ -228,13 +252,18 @@ a {
 
 /* xl */
 @media (min-width: 1200px) {
-  .btn:hover {
-    background-color: rgb(203, 0, 0);
-    color: white;
+  #loginBtn:hover,
+  #registerBtn:hover {
+    background-color: #f8c8dc;
   }
 
-  a:hover {
-    color: rgb(203, 0, 0);
+  #proceed-login:hover,
+  .continue-btn:hover {
+    background-color: #5cb85c;
+  }
+
+  .register-login-link:hover {
+    color: #3a3a3a;
   }
 }
 

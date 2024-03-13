@@ -26,8 +26,8 @@ const passwordFieldLogin = document.querySelector("#password-login");
 const passwordFieldReg = document.querySelector("#password-reg");
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
-const quoteLength = 100; // Ny kod
 
+// Function for clearing input fields
 function clearInput() {
   let inputField = document.querySelectorAll(
     "input[type='text'], input[type='password']"
@@ -36,11 +36,12 @@ function clearInput() {
   inputField.forEach((field) => (field.value = ""));
 }
 
-// Ny kod
+// Function for getting quote with less than 100 characters
 async function getQuote() {
   try {
     const response = await axios.get("https://api.quotable.io/random");
     const results = response.data;
+    const quoteLength = 100;
 
     // Check quote length
     if (results.content.length < quoteLength) {
@@ -55,6 +56,7 @@ async function getQuote() {
   }
 }
 
+// Function for showing/hiding passwords
 function toggleVisibility(passwordField, showPassword) {
   if (passwordField.type === "password") {
     passwordField.type = "text";
@@ -67,6 +69,7 @@ function toggleVisibility(passwordField, showPassword) {
   }
 }
 
+// Function for displaying error messages
 function validateField(field, errorElement, errorMessage) {
   if (field.value.trim() === "") {
     errorElement.textContent = `${errorMessage} is required`;
@@ -80,13 +83,11 @@ function validateField(field, errorElement, errorMessage) {
   return true;
 }
 
-/////// HÄR ÄR NY KOD /////////
-
+// Function for generating userId for every new registered user
 function generateUserId() {
   const randomValue = Math.random().toString(36).substring(2, 15);
   return randomValue;
 }
-/////// HÄR ÄR NY KOD /////////
 
 showPasswordLogin.addEventListener("click", () => {
   toggleVisibility(passwordFieldLogin, showPasswordLogin);
@@ -96,6 +97,7 @@ showPasswordReg.addEventListener("click", () => {
   toggleVisibility(passwordFieldReg, showPasswordReg);
 });
 
+// Toggling between register form and login form
 registerLink.addEventListener("click", (event) => {
   event.preventDefault();
   loginForm.classList.remove("active");
@@ -132,6 +134,7 @@ registerBtn.addEventListener("click", (event) => {
 
   let userExist = users.some((user) => user.username === username);
 
+  // Error handling for input fields
   const isValid =
     validateField(usernameReg, userRegError, "Username") &&
     validateField(passwordReg, passRegError, "Password");
@@ -140,14 +143,11 @@ registerBtn.addEventListener("click", (event) => {
     return;
   }
 
-  /////// HÄR ÄR NY KOD /////////
-
+  // If user doesn't exist, generate userId, push new username, password, userId to users
   if (!userExist) {
     const userId = generateUserId();
     users.push({ userId, username, password });
     localStorage.setItem("users", JSON.stringify(users));
-
-    /////// HÄR ÄR NY KOD /////////
 
     popupSuccess.classList.add("open");
     // console.log(JSON.stringify(users));
@@ -187,6 +187,7 @@ loginBtn.addEventListener("click", (event) => {
 
   console.log(user);
 
+  // If successful login, set userOnline object to logged in user
   if (user) {
     localStorage.setItem("userOnline", JSON.stringify(user));
 
