@@ -1,7 +1,9 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
 }
 
 body {
@@ -10,19 +12,20 @@ body {
 }
 
 body .header {
-  font-family: "Anta", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 30px 30px 0;
-  position: relative;
-  z-index: 9999;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
+
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 30px 0;
+    position: relative;
+    z-index: 9999;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 
 .header-menu {
   display: flex;
@@ -98,19 +101,18 @@ main {
 }
 
 .wrapper {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  background-color: aliceblue;
-  width: 50%;
-  margin: 2rem;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  border-radius: 1rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    background-color: aliceblue;
+    width: 50%;
+    margin: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 .btnContainer {
   display: flex;
@@ -118,12 +120,14 @@ main {
 }
 
 #addBtn {
-  width: 8.5rem;
-  height: 3rem;
-  background-color: #fefefe;
-  font-weight: 500;
-  border: 1px solid black;
-  border-radius: 6px;
+
+width: 8.5rem;
+height: 3rem;
+background-color:#fefefe;
+font-size: 16px;
+font-weight: 500;
+border: 1px solid black;
+border-radius: 6px;
 }
 
 h1 {
@@ -161,8 +165,8 @@ input[type="checkbox"] {
 }
 
 select {
-  width: fit-content;
-}
+width: fit-content ;
+color: grey;
 
 /* Modal */
 
@@ -198,15 +202,16 @@ h2 {
 }
 
 .modalContent {
-  background-color: #fefefe;
-  text-align: center;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 30%;
-  border: 2px solid #060606;
-  border-radius: 20px;
-  position: relative;
+    background-color: #fefefe;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border: 2px solid #060606;
+    border-radius: 20px;
+    position: relative;
+
 }
 
 #todoForm {
@@ -252,14 +257,18 @@ h2 {
   margin: 5px;
 }
 
-#addNewTodo,
-#saveTodo {
-  width: 5rem;
-  height: 2rem;
-  background-color: #474646;
-  color: #f8f8f8;
-  font-weight: bold;
-  border-radius: 3px;
+
+#modalDeadline {
+  color: #808080;
+}
+
+#addNewTodo,#saveTodo {
+width: 5rem;
+height: 2rem;
+background-color: #474646;
+color: #f8f8f8;
+font-weight:bold;
+border-radius: 3px;
 }
 
 .close {
@@ -301,7 +310,8 @@ h2 {
 }
 
 .todo-item .description {
-  margin: 5px 0px 10px 0px;
+margin: 5px 0px 10px 0px;
+font-size: 16px;
 }
 
 .todo-item .category,
@@ -319,9 +329,9 @@ h2 {
 }
 
 .todo-item input {
-  position: absolute;
-  bottom: 22px;
-  right: 20px;
+position: absolute;
+bottom: 24px;
+right: 20px;
 }
 .todo-item label {
   font-size: 14px;
@@ -469,45 +479,49 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  body {
-    font-family: "Anta", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
+    body {
+      font-weight: 400;
+      font-style: normal;
+    }
 
-  main {
-    width: 100%;
-  }
+    main {
+        width: 100%;
+    }
 
-  .wrapper {
-    width: 100%;
-    padding: 0.5rem;
-    margin: 0.5rem;
-  }
+    .modalContent {
+      width: 80%;
 
-  .categoryFilter label {
-    font-size: 12px;
-  }
+    }
 
-  .categoryFilter span {
-    display: none;
-  }
+    .wrapper {
+        width: 100%;
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
 
-  .optionContainer {
-    text-align: center;
-  }
-  .optionContainer label {
-    font-size: 12px;
-  }
+    .categoryFilter label {
+        font-size: 12px;
+    }
 
-  .optionContainer select {
-    height: 1.2rem;
-    width: 5rem;
-  }
+    .categoryFilter span {
+        display: none;
+    }
 
-  .mobile-nav,
-  #menu-bars,
-  .mobile-btn {
+    .optionContainer {
+        text-align: center;
+    }
+    .optionContainer label {
+        font-size: 12px;
+    }
+
+    .optionContainer select {
+        height: 1.2rem;
+        width: 5rem;
+    }
+
+    .mobile-nav,
+    #menu-bars,
+    .mobile-btn {
     display: block;
   }
 
