@@ -3,6 +3,7 @@
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -11,7 +12,6 @@ body {
 }
 
 body .header {
-    font-family:"Anta", sans-serif;
     font-weight: 400;
     font-style: normal;
     display: flex;
@@ -101,7 +101,6 @@ main {
 }
 
 .wrapper {
-  font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
@@ -116,7 +115,6 @@ main {
 
 }
 
-
 .btnContainer {
 display: flex;
 justify-content: center;
@@ -126,6 +124,7 @@ justify-content: center;
 width: 8.5rem;
 height: 3rem;
 background-color:#fefefe;
+font-size: 16px;
 font-weight: 500;
 border: 1px solid black;
 border-radius: 6px;
@@ -167,6 +166,7 @@ gap: 10px;
 
 select {
 width: fit-content ;
+color: grey;
 }
 
 /* Modal */
@@ -204,7 +204,6 @@ font-weight: 400;
 }
 
 .modalContent {
-
     background-color: #fefefe;
     text-align: center;
     margin: auto;
@@ -253,6 +252,10 @@ flex-wrap: wrap;
 
 #modalCategory, #modalEstTime, #modalDeadline {
 margin: 5px;
+}
+
+#modalDeadline {
+  color: #808080;
 }
 
 #addNewTodo,#saveTodo {
@@ -304,6 +307,7 @@ font-weight: 400;
 
 .todo-item .description {
 margin: 5px 0px 10px 0px;
+font-size: 16px;
 }
 
 .todo-item .category,.estTime,.deadline {
@@ -320,7 +324,7 @@ border-radius: 4px;
 
 .todo-item input {
 position: absolute;
-bottom: 22px;
+bottom: 24px;
 right: 20px;
 }
 .todo-item label {
@@ -361,13 +365,17 @@ background-color: #f7f3c8;
 
 @media (max-width: 768px) {
     body {
-      font-family: "Anta", sans-serif;
       font-weight: 400;
       font-style: normal;
     }
 
     main {
         width: 100%;
+    }
+
+    .modalContent {
+      width: 80%;
+
     }
 
     .wrapper {
