@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="start.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com/" />
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <title>Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Anta&display=swap"
       rel="stylesheet"
     />
     <script
-      src="https://kit.fontawesome.com/eda7159a08.js"
+      src="https://kit.fontawesome.com/7d4a336cd6.js"
       crossorigin="anonymous"
     ></script>
-    <script src="start.js" defer></script>
-    <script src="login.js" defer></script>
+    <link rel="stylesheet" href="calendar.css" />
     <script src="calendar.js" defer></script>
+    <script src="start.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -45,9 +45,6 @@
         <i class="fa-solid fa-bars" id="menu-bars"> </i>
       </nav>
     </header>
-    <div class="container">
-      <h2 id="usernameDisplay"></h2>
-    </div>
 
     <!-- Mobile Navigation -->
     <div class="mobile-nav">
@@ -81,37 +78,6 @@
           </li>
         </ul>
       </nav>
-    </div>
-    <div class="main">
-      <!-- <div class="container">
-        <h2 id="usernameDisplay"></h2>
-      </div> -->
-
-      <div class="ctaContainer hidden">
-        <button class="btn todoBtn hidden" id="startTodosBtn">TODOS</button>
-        <button class="btn habitsBtn hidden" id="startHabitsBtn">HABITS</button>
-      </div>
-
-      <div class="container hidden">
-        <div>
-          <a href="todos.html" class="btn todo mobile-btn">TO DO</a>
-        </div>
-        <div>
-          <a href="habits.html" class="btn habits mobile-btn">HABITS</a>
-        </div>
-        <div>
-          <a href="#" class="btn weather mobile-btn">WEATHER</a>
-        </div>
-        <div>
-          <a href="#" class="btn pomodoro mobile-btn">POMODORO</a>
-        </div>
-        <div>
-          <a href="calendar.html" class="btn calendar mobile-btn">CALENDAR</a>
-        </div>
-      </div>
-      <div class="modal popup-weather"></div>
-      <div class="modal popup-pomodoro"></div>
-      <div class="modal popup-calendar"></div>
     </div>
     <div class="wrapper-calendar">
       <div class="container-calendar">
@@ -147,5 +113,3 @@
     </div>
   </body>
 </html>
-
-<!-- test -->
