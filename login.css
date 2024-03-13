@@ -127,7 +127,7 @@ input::placeholder {
 
 #loginBtn:active,
 #registerBtn:active {
-  background-color: #c07c98;
+  background-color: #f8c8dc;
 }
 
 .register-login-link {
@@ -257,6 +257,11 @@ input::placeholder {
   #loginBtn:hover,
   #registerBtn:hover {
     background-color: #f8c8dc;
+  }
+
+  #loginBtn:active,
+  #registerBtn:active {
+    background-color: #c07c98;
   }
 
   #proceed-login:hover,

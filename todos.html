@@ -11,8 +11,10 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com/" />
@@ -24,11 +26,21 @@
     <link rel="stylesheet" href="todos.css" />
     <script src="todos.js" defer></script>
     <script src="start.js" defer></script>
+    <script src="calendar.js" defer></script>
   </head>
   <body>
     <header class="header">
       <nav>
         <ul class="header-menu">
+          <li>
+            <a class="header-link todo-desktop" href="start.html">HOME</a>
+          </li>
+          <li>
+            <a class="header-link todo-desktop" href="todos.html">TODO</a>
+          </li>
+          <li>
+            <a class="header-link habits-desktop" href="habits.html">HABITS</a>
+          </li>
           <li>
             <a class="header-link weather-desktop" href="#">WEATHER</a>
           </li>
@@ -156,7 +168,9 @@
               <a class="mobile-nav-link pomodoro-mobile" href="#">POMODORO</a>
             </li>
             <li>
-              <a class="mobile-nav-link calendar-mobile" href="#">CALENDAR</a>
+              <a class="mobile-nav-link calendar-mobile" href="calendar.html"
+                >CALENDAR</a
+              >
             </li>
             <li class="desktop-line"></li>
             <li>
@@ -166,5 +180,37 @@
         </nav>
       </div>
     </main>
+    <div class="wrapper-calendar">
+      <div class="container-calendar">
+        <form id="form-calendar">
+          <label for="text" class="label-text">What's the plan?</label>
+          <input
+            type="text"
+            name="text"
+            id="text"
+            class="text-input"
+            placeholder="Enter event details"
+          />
+          <label for="date" class="label-text">Select a date</label>
+          <input type="date" name="date" id="date" class="date-input" />
+          <label for="start-time" class="label-text">Start time</label>
+          <input
+            type="time"
+            name="start-time"
+            id="start-time"
+            class="start-time-input"
+          />
+          <label for="stop-time" class="label-text">Stop time</label>
+          <input
+            type="time"
+            name="stop-time"
+            id="stop-time"
+            class="stop-time-input"
+          />
+          <button class="add-event-btn">Add event</button>
+        </form>
+      </div>
+      <div class="events-list"></div>
+    </div>
   </body>
 </html>

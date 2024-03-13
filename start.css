@@ -50,7 +50,6 @@ body {
   /* border: 1px solid red; */
 }
 
-
 .container {
   display: flex;
   justify-content: center;
@@ -85,12 +84,13 @@ a {
   cursor: pointer;
 }
 
-
-.todo, .todoBtn {
+.todo,
+.todoBtn {
   background-color: #fdd1d1;
 }
 
-.habits, .habitsBtn {
+.habits,
+.habitsBtn {
   background-color: #ffc79f;
 }
 
@@ -180,7 +180,6 @@ a {
 }
 
 @media (min-width: 768px) {
-  
   .header-menu {
     display: flex;
     justify-content: space-between;
@@ -228,29 +227,138 @@ a {
   }
 
   .hidden {
-      display: block;
+    display: block;
   }
 
   .main {
-      height: 70%;
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      justify-content: center;
+    height: 70%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
   }
 
   .ctaContainer {
-      height: 70%;
-      width: 100%;
-      background-color: lavender;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap:2rem;
-      margin-bottom: auto;
-    }
+    height: 70%;
+    width: 100%;
+    background-color: lavender;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: auto;
+  }
 
-    .hiddenDesktop {
-      display:none;
-    }
+  .hiddenDesktop {
+    display: none;
+  }
+
+  .wrapper-calendar {
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .wrapper-calendar.open {
+    opacity: 1;
+    z-index: 999;
+  }
+
+  .container-calendar {
+    width: 300px;
+  }
+
+  #form-calendar {
+    background-color: #ffe1e9;
+    padding: 15px;
+    border-radius: 6px;
+  }
+
+  .text-input,
+  .date-input,
+  .start-time-input,
+  .stop-time-input,
+  .add-event-btn {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: none;
+  }
+
+  .add-event-btn {
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.025em;
+    background-color: #fff;
+    color: rgb(34, 34, 34);
+    border-radius: 6px;
+    border: 1px solid rgb(34, 34, 34);
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .add-event-btn:active {
+    background-color: #c7dbda;
+  }
+
+  .label-text {
+    margin-left: 2px;
+  }
+
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    width: 300px;
+    background-color: #c7dbda;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: none;
+    position: relative;
+  }
+
+  .event-item {
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+  }
+
+  .h2-events {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .delete-btn {
+    font-size: 13px;
+    position: absolute;
+    margin-left: 250px;
+    margin-top: -16px;
+  }
+
+  .delete-btn:hover {
+    cursor: pointer;
+  }
+
+  .events-list {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .add-event-btn:hover {
+    background-color: #c7dbda;
+  }
 }

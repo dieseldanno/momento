@@ -4,45 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" class="css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
     <script src="https://kit.fontawesome.com/7d4a336cd6.js" crossorigin="anonymous"></script>
     <script src="habits.js" defer></script>
-    <script src="start.js" defer></script>
+    <script src="start.js"></script>
+    <script src="calendar.html" defer></script>
     
     <title>Habits</title>
-</head>
-<body>
-  <header class="header">
-    <nav>
-      <ul class="header-menu">
-        <li>
-          <a class="header-link weather-desktop" href="#">WEATHER</a>
-        </li>
-        <li>
-          <a class="header-link pomodoro-desktop" href="#">POMODORO</a>
-        </li>
-        <li>
-          <a class="header-link calendar-desktop" href="#">CALENDAR</a>
-        </li>
-        <li class="desktop-line"></li>
-        <li>
-          <a href="login.html" class="logout-btn logout">LOGOUT</a>
-        </li>
-      </ul>
-      <i class="fa-solid fa-bars" id="menu-bars"> </i>
-    </nav>
-  </header>
+  </head>
+  <body>
+    <header class="header">
+      <nav>
+        <ul class="header-menu">
+          <li>
+            <a class="header-link todo-desktop" href="start.html">HOME</a>
+          </li>
+          <li>
+            <a class="header-link todo-desktop" href="todos.html">TODO</a>
+          </li>
+          <li>
+            <a class="header-link habits-desktop" href="habits.html">HABITS</a>
+          </li>
+          <li>
+            <a class="header-link weather-desktop" href="#">WEATHER</a>
+          </li>
+          <li>
+            <a class="header-link pomodoro-desktop" href="#">POMODORO</a>
+          </li>
+          <li>
+            <a class="header-link calendar-desktop" href="#">CALENDAR</a>
+          </li>
+          <li class="desktop-line"></li>
+          <li>
+            <a href="login.html" class="logout-btn logout">LOGOUT</a>
+          </li>
+        </ul>
+        <i class="fa-solid fa-bars" id="menu-bars"> </i>
+      </nav>
+    </header>
 
     <!-- Mobile Navigation -->
     <div class="mobile-nav">
       <nav>
         <ul class="mobile-nav-menu">
           <li>
-            <a class="mobile-nav-link start-mobile" href="index.html">START</a>
+            <a class="mobile-nav-link start-mobile" href="start.html">START</a>
           </li>
           <li>
             <a class="mobile-nav-link todo-mobile" href="todos.html">TO DO</a>
@@ -59,7 +66,9 @@
             <a class="mobile-nav-link pomodoro-mobile" href="#">POMODORO</a>
           </li>
           <li>
-            <a class="mobile-nav-link calendar-mobile" href="#">CALENDAR</a>
+            <a class="mobile-nav-link calendar-mobile" href="calendar.html"
+              >CALENDAR</a
+            >
           </li>
           <li class="desktop-line"></li>
           <li>
@@ -69,83 +78,120 @@
       </nav>
     </div>
     <main>
-        <div class="container mx-auto mt-3 rounded shadow habitContainer">
-            <h1 class="text-center">Habits</h1>
-            <form class="bg-light border rounded shadow m-4 p-3 add-habit">
-              <input
-                class="form-control my-3 habit"
-                type="text"
-                name="habit"
-                placeholder="Enter Habit Name"
-                required
-              />
-              <input
-                class="my-3 form-control"
-                type="number"
-                name="reps"
-                id="repsInput"
-                placeholder="# of Repetitions"
-                min="1"
-                required
-              />
-              <div class="frequency">
-                <label for="timeframe">Frequency: </label>
-                <select class="form-select my-3" name="timeframe" id="timeframe">
-                  <option value="daily">Daily</option>
-                  <option value="weekly">Weekly</option>
-                  <option value="monthly">Monthly</option>
-                  <option value="yearly">Yearly</option>
-                </select>
-              </div>
-              <div class="priority">
-                <label  for="priority">Priority: </label>
-                <select class="form-select my-3" name="priority" id="priority">
-                  <option value="low">Low</option>
-                  <option value="normal">Normal</option>
-                  <option value="high">High</option>
-                </select>
-              </div>
-              <button class="btn btn-light border shadow" type="submit">Add habit  <i class="fa-solid fa-plus icon-after"></i></button>
-            </form>
-
-            <div class=" w-75 mx-auto d-flex justify-content-between">
-
-              <div class="filter-container form-check">
-                <div>
-                <label for="filterHabits" class="block">Filter by Priority:</label>
-              </div>
-                <input type="checkbox" id="filterLow" value="low">
-                <label for="filterLow">Low</label><br>
-                <input type="checkbox" id="filterNormal" value="normal">
-                <label for="filterNormal">Normal</label><br>
-                <input type="checkbox" id="filterHigh" value="high">
-                <label for="filterHigh">High</label>
-                <div>
-                <button class="btn btn-sm btn-light border shadow text-nowrap" id="clearAllFilters">Clear Filters</button>
-              </div>
-
-              </div>
-
-              <div class="sort-container">
-                <label for="sortHabits">Sort by:</label>
-                <select id="sortHabits">
-                  <option value="any">Any</option>
-                  <option value="highest-streak">Highest Streak</option>
-                  <option value="lowest-streak">Lowest Streak</option>
-                  <option value="highest-priority">Highest Priority</option>
-                  <option value="lowest-priority">Lowest Priority</option>
-                </select>
-              </div>
-
-            </div>
-
-            <ul class=" m-4 p-3 habits">
-              <li class="text-center fw-bold noHabitsMessage">No habits added yet, add you first habit to get startet!</li>
-            </ul>
-          
-            
+      <div class="container mx-auto mt-3 rounded shadow habitContainer">
+        <h1 class="text-center">Habits</h1>
+        <form class="bg-light border rounded shadow m-4 p-3 add-habit">
+          <input
+            class="form-control my-3 habit"
+            type="text"
+            name="habit"
+            placeholder="Enter Habit Name"
+            required
+          />
+          <input
+            class="my-3 form-control"
+            type="number"
+            name="reps"
+            id="repsInput"
+            placeholder="# of Repetitions"
+            min="1"
+            required
+          />
+          <div class="frequency">
+            <label for="timeframe">Frequency: </label>
+            <select class="form-select my-3" name="timeframe" id="timeframe">
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="yearly">Yearly</option>
+            </select>
           </div>
-    </main>
-  </body>
+          <div class="priority">
+            <label for="priority">Priority: </label>
+            <select class="form-select my-3" name="priority" id="priority">
+              <option value="low">Low</option>
+              <option value="normal">Normal</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <button class="btn btn-light border shadow" type="submit">
+            Add habit <i class="fa-solid fa-plus icon-after"></i>
+          </button>
+        </form>
 
+        <div class="w-75 mx-auto d-flex justify-content-between">
+          <div class="filter-container form-check">
+            <div>
+              <label for="filterHabits" class="block"
+                >Filter by Priority:</label
+              >
+            </div>
+            <input type="checkbox" id="filterLow" value="low" />
+            <label for="filterLow">Low</label><br />
+            <input type="checkbox" id="filterNormal" value="normal" />
+            <label for="filterNormal">Normal</label><br />
+            <input type="checkbox" id="filterHigh" value="high" />
+            <label for="filterHigh">High</label>
+            <div>
+              <button
+                class="btn btn-sm btn-light border shadow text-nowrap"
+                id="clearAllFilters"
+              >
+                Clear Filters
+              </button>
+            </div>
+          </div>
+
+          <div class="sort-container">
+            <label for="sortHabits">Sort by:</label>
+            <select id="sortHabits">
+              <option value="any">Any</option>
+              <option value="highest-streak">Highest Streak</option>
+              <option value="lowest-streak">Lowest Streak</option>
+              <option value="highest-priority">Highest Priority</option>
+              <option value="lowest-priority">Lowest Priority</option>
+            </select>
+          </div>
+        </div>
+
+        <ul class="m-4 p-3 habits">
+          <li class="text-center fw-bold noHabitsMessage">
+            No habits added yet, add you first habit to get startet!
+          </li>
+        </ul>
+      </div>
+    </main>
+    <div class="wrapper-calendar">
+      <div class="container-calendar">
+        <form id="form-calendar">
+          <label for="text" class="label-text">What's the plan?</label>
+          <input
+            type="text"
+            name="text"
+            id="text"
+            class="text-input"
+            placeholder="Enter event details"
+          />
+          <label for="date" class="label-text">Select a date</label>
+          <input type="date" name="date" id="date" class="date-input" />
+          <label for="start-time" class="label-text">Start time</label>
+          <input
+            type="time"
+            name="start-time"
+            id="start-time"
+            class="start-time-input"
+          />
+          <label for="stop-time" class="label-text">Stop time</label>
+          <input
+            type="time"
+            name="stop-time"
+            id="stop-time"
+            class="stop-time-input"
+          />
+          <button class="add-event-btn">Add event</button>
+        </form>
+      </div>
+      <div class="events-list"></div>
+    </div>
+  </body>
 </html>
