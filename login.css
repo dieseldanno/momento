@@ -121,6 +121,7 @@ input::placeholder {
   border-radius: 6px;
   border: 1px solid rgb(203, 0, 0);
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .btn:active {
@@ -133,6 +134,7 @@ a {
   color: black;
   font-weight: 600;
   letter-spacing: 0.05rem;
+  text-transform: uppercase;
 }
 
 .popup-success {

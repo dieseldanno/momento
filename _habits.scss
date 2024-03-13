@@ -1,34 +1,40 @@
-*{
-    box-sizing: border-box;
-    margin:0;
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  padding: 2rem;
+}
+
+h1,h2,h3{
+  text-transform: uppercase;
 }
 .habits li{
     list-style: none;
 }
 
 .habitContainer{
-    background: lavender
+    background: rgb(224, 211, 252);
+
 }
 
 
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
 
 
 @media (min-width: 1200px) {
 
-  
-    .habitContainer {
-      max-width: 100%;
 
+
+    main{
+     // max-width: 50%;
+      width: 100%;
+
+      .habitContainer{
+        max-width: 50%;
+      }
+  
     }
-  }
-  main{
-    max-width: 50%;
-    padding: 30px;
   }
