@@ -23,6 +23,7 @@ body {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  text-transform: uppercase;
 }
 
 .header-menu {
@@ -77,17 +78,19 @@ a {
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .btn:hover {
   cursor: pointer;
 }
 
-.todo {
+
+.todo, .todoBtn {
   background-color: #fdd1d1;
 }
 
-.habits {
+.habits, .habitsBtn {
   background-color: #ffc79f;
 }
 

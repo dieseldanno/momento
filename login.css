@@ -122,6 +122,7 @@ input::placeholder {
   border-radius: 6px;
   border: 1px solid rgb(34, 34, 34);
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 #loginBtn:active,
@@ -134,6 +135,7 @@ input::placeholder {
   color: black;
   font-weight: 600;
   letter-spacing: 0.05rem;
+  text-transform: uppercase;
 }
 
 .register-login-link:active {
