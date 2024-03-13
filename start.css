@@ -83,11 +83,12 @@ a {
   cursor: pointer;
 }
 
-.todo {
+
+.todo, .todoBtn {
   background-color: #fdd1d1;
 }
 
-.habits {
+.habits, .habitsBtn {
   background-color: #ffc79f;
 }
 
