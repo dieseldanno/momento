@@ -49,7 +49,7 @@ function listHabits(habits = [], habitsList) {
   const userHabits = habits.filter((habit) => habit.userId === loggedInUserId);
   habitsList.innerHTML =
     userHabits.length === 0
-      ? "<li class='text-center noHabitsMessage'>No habits added yet, add you first habit to get startet!</li>"
+      ? "<li class='text-center noHabitsMessage'>No habits added yet, add you first habit to get started!</li>"
       : userHabits /////// HÄR ÄR NY KOD /////////
           .map((habit, i) => {
             // Generate HTML for each habit
@@ -115,7 +115,7 @@ function toggleCompleted(e) {
 // Function to update habit streak
 function updateHabitStreak(index, delta) {
   habits[index].streak = Math.max(0, habits[index].streak + delta);
-  filterHabits();
+  filterHabits()
   // listHabits(habits, habitsList); // Update the UI
   console.log("new streak", habits[index].streak);
   localStorage.setItem("habits", JSON.stringify(habits)); // Save habits to localStorage
