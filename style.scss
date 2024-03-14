@@ -62,7 +62,7 @@ h1{
     margin-left: auto;
     margin-right: auto;
     text-transform: uppercase;
-    font-weight: 700 !important;
+    font-weight: 700 !;
   }
   
   .header-menu {
@@ -210,22 +210,6 @@ h1{
       gap: 2em;
       font-weight: 700;
     }
-    .nav-logo {
-      order: -1; /* Places the logo at the start of the flex container */
-  }
-  
-  .nav-logo a {
-      display: flex; /* Ensures the link expands to fit the logo */
-      align-items: center; /* Aligns the logo vertically */
-  }
-  
-  .logo1 {
-      height: 30px; /* Adjust the size of the logo as needed */
-  }
-  
-  .nav-logo li {
-      margin-right: 20px;
-  }
   
     .mobile-nav,
     #menu-bars,
@@ -242,7 +226,6 @@ h1{
       font-weight: 700 !important;
     }
   
-
     .start-desktop:hover {
       background-color: #ff9a9a;
     }
