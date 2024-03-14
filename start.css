@@ -183,6 +183,10 @@ a {
   display: none;
 }
 
+.outerModal {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .header-menu {
     display: flex;
@@ -389,4 +393,183 @@ a {
   .add-event-btn:hover {
     background-color: #c7dbda;
   }
+  /* POMODORO TIMER */
+
+.outerModal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 5px;
+  position: fixed; /* Stay in place */
+  z-index: -1; /* Sit on top */
+  opacity: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.outerModal.open {
+  opacity: 1;
+  z-index: 999;
+}
+
+.timer-wrapper {
+  height: 60%;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.timerContainer {
+  height: 100%;
+  width: 100%;
+  padding: 4rem;
+  background-color: plum;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.timerContainer h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.timer-btns button {
+  color: white;
+  font-weight: 600;
+  height: 2rem;
+  width: 6rem;
+  border: none;
+  border-radius: 2px;
+  background-color: rgb(233, 190, 233);
+  border-radius: 3px;
+  box-shadow: 0px 0px 1px 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.timer-btns {
+  width: 100%;
+}
+
+.numberContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.numberDisplay {
+  font-size: 6rem;
+  margin-left: 1rem;
+  align-self: center;
+  justify-content: center;
+}
+
+#startBtn, #pauseBtn, #stopBtn {
+  width:6rem;
+  height: 3rem;
+}
+
+/* POMODORO SET-TIME-MODAL */
+
+.set-modal-button {
+  height: 2rem;
+  width: 4rem;
+  font-weight: 600;
+  background-color: azure;
+  border: none;
+  border-radius: 2px;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+.set-modal {
+  position: relative;
+  width: 25rem;
+  padding: 10px;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 5px;
+
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.set-modal-content {
+    background-color: #fefefe;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+    border: 2px solid #060606;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.set-modal-button {
+  background-color: #060606;
+  color: whitesmoke;
+  border-radius: 6px;
+}
+
+.modal-input {
+  width: 3rem;
+  height: 1rem;
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 6px;
+  font-size: 16px;
+  
+}
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 }

@@ -119,7 +119,7 @@ function createTodoElement(todo) {
   });
 
   let deleteBtn = document.createElement('button');
-  deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
+  deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
   deleteBtn.addEventListener('click', () => {
     let indexToRemove = todoStorage.findIndex((item) => item === todo);
     // Ta bort todo från todoStorage-listan
