@@ -535,7 +535,7 @@ button:hover{
 }
 
 .modal-input {
-  width: 3rem;
+  width: 4rem;
   height: 1rem;
   padding: 8px;
   border: 2px solid black;
@@ -543,7 +543,7 @@ button:hover{
   font-size: 16px;
   
 }
-.close {
+.closeSetModal {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
@@ -553,14 +553,16 @@ button:hover{
   right: 10px;
 }
 
-.close:hover,
-.close:focus {
+.closeSetModal:hover,
+.closeSetModal:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
-
-  
+.set-modal-title {
+  text-transform: none;
+  font-size: 24px
+}
   }
   
 
