@@ -1,16 +1,8 @@
 // Mixins and variables
 @import "./_mixinsAndVariables.scss";
-//Resten av partials ska  längst ner för att prioriteras i rätt ordning, scss laddas först, sen partials :)
+//Rest of partials put at bottom of scss doc so it loads in correct order
 
-// Här i mitten kan vi lägga alla allmän scss som gäller alla sidor
-//Tex nav, bakgrundsfärger, fonts, sizes och regler för hur containers ska se ut
-//Så de blir enhetligt 
-//kanske lägga media queries här
-
-
-//OBS style.scss renderar till style.css så vi ska INTE skriva direkt i den css-filen!
-//Bara här eller i egna css filerna :)))))// Minna
-
+//General styling rulis form, main, nav, modals etc
 
 * {
     margin: 0;
@@ -50,7 +42,7 @@ h1{
   text-transform: uppercase;
 }
 
-  
+//header and nav rules (mobile first)
   .header {
     display: flex;
     justify-content: flex-end;
@@ -65,6 +57,7 @@ h1{
     font-weight: 700 !important;
   }
   
+  //hide desktop menu
   .header-menu {
     display: none;
   }
@@ -73,6 +66,7 @@ h1{
     display: none;
   }
   
+  //mobile menu
   #menu-bars {
     color: black;
     background-color: white;
@@ -204,6 +198,7 @@ h1{
     display: none;
   }
   
+  // media querys for desktop
   @media (min-width: 768px) {
     
     .header-menu {
@@ -273,6 +268,7 @@ h1{
         display: block;
     }
 
+    //calendar 
     .wrapper-calendar {
       flex-direction: row;
       background-color: rgba(0, 0, 0, 0.9);
@@ -383,6 +379,7 @@ h1{
     }
 
     /* POMODORO TIMER */
+    //pomodoro is created desktop first
 
 .outerModal {
   position: relative;
@@ -569,13 +566,15 @@ button:hover{
 
 
 
-//Här lägger vi partials till specifik scss, här e min för habits
+//Partials for specific css for html page or nav
 
 
-// Just nu döljer jag dom innan css filerna e lösta
-//style.scss är inte inlänkat än i head för login, start o todos
-//just nu e används/ inlänkas egna css för era
+// Only habits is in use as of now (and only habits uses style.scss)
+// Others commented out and kept for future implementation
+
 //@import "./_login.scss";
 //@import "./start";
 //@import "./todos"
+
+//css for habits.html
 @import "./_habits.scss";
