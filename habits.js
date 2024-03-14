@@ -22,7 +22,7 @@ function addHabit(e) {
 
   habits = JSON.parse(localStorage.getItem("habits")) || [];
 
-  // Creating a new habit object
+  // Creating a new habit object and attatching to loggedInUser
   let habit = {
     userId: loggedInUserId,
     text,
@@ -42,7 +42,7 @@ function addHabit(e) {
 
 // Function to display habits
 function listHabits(habits = [], habitsList) {
-  /////// HÄR ÄR NY KOD /////////
+  // Tie habits to logged in user
   const userOnlineData = localStorage.getItem("userOnline");
 
   const loggedInUserId = JSON.parse(userOnlineData).userId;
@@ -50,7 +50,7 @@ function listHabits(habits = [], habitsList) {
   habitsList.innerHTML =
     userHabits.length === 0
       ? "<li class='text-center noHabitsMessage'>No habits added yet, add you first habit to get started!</li>"
-      : userHabits /////// HÄR ÄR NY KOD /////////
+      : userHabits 
           .map((habit, i) => {
             // Generate HTML for each habit
             const disabled = habit.streak === 0 ? "disabled" : ""; // Set disabled class if streak is 0
@@ -172,7 +172,7 @@ habitsList.addEventListener("click", function (e) {
 addHabits.addEventListener("submit", function (e) {
   addHabit(e); // Handle adding the habit
 });
-
+//Function for deleting a habit from the UI and local storage
 function deleteHabit(e) {
   if (!e.target.matches("button")) return;
 
@@ -259,6 +259,7 @@ filterCheckboxes.forEach((checkbox) => {
 const clearAllFiltersButton = document.getElementById("clearAllFilters");
 clearAllFiltersButton.addEventListener("click", clearAllFilters);
 
+//Clear all filters function
 function clearAllFilters() {
   const filterCheckboxes = document.querySelectorAll(
     ".filter-container input[type=checkbox]"
@@ -267,6 +268,7 @@ function clearAllFilters() {
   listHabits(habits, habitsList); // Update the habits list to show all habits
 }
 
+//Making the fontawesome icons on buttons inherit its eventListener 
 function handleIconClicks(event) {
   if (event.target.matches(".fa-solid")) {
     // Check if clicked element is an icon
