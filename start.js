@@ -34,17 +34,17 @@ const logoutBtn = document.querySelectorAll(".logout-btn");
 
 logoutBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
     localStorage.removeItem("userOnline");
   });
 });
 
-let desktopTodosBtn = document.getElementById("startTodosBtn"); 
-let desktopHabitsBtn = document.getElementById("startHabitsBtn"); 
+let desktopTodosBtn = document.getElementById("startTodosBtn");
+let desktopHabitsBtn = document.getElementById("startHabitsBtn");
 
-desktopTodosBtn.addEventListener('click', () => {
-window.location.href = "todos.html";
+desktopTodosBtn.addEventListener("click", () => {
+  window.location.href = "todos.html";
 });
-desktopHabitsBtn.addEventListener('click', () => {
-window.location.href = "habits.html";
+desktopHabitsBtn.addEventListener("click", () => {
+  window.location.href = "habits.html";
 });
