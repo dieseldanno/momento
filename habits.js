@@ -56,7 +56,7 @@ function listHabits(habits = [], habitsList) {
             const disabled = habit.streak === 0 ? "disabled" : ""; // Set disabled class if streak is 0
             return `
         <li class="shadow border rounded bg-light mx-auto m-4 p-3 text-capitalize">
-          <h3 class="h4"><i class="fa-solid fa-fire h5 me-2">${habit.streak} </i> 
+          <h3 class="h4"><i class="fa-solid fa-fire h5 me-2"> ${habit.streak} </i> 
             ${habit.text} </h3> 
           <div class="repsCounter h6">${habit.reps}/${habit.totalCounts} ${
               habit.timeframe
