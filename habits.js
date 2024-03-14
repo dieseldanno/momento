@@ -55,7 +55,7 @@ function listHabits(habits = [], habitsList) {
             // Generate HTML for each habit
             const disabled = habit.streak === 0 ? "disabled" : ""; // Set disabled class if streak is 0
             return `
-        <li class="shadow border rounded bg-light mx-auto m-4 p-3 text-capitalize">
+        <li class="shadow border rounded bg-light mx-auto m-4 p-3 px-5 text-capitalize">
           <h3 class="h4"><i class="fa-solid fa-fire h5 me-2"> ${habit.streak} </i> 
             ${habit.text} </h3> 
           <div class="repsCounter h6">Repetitions: ${habit.reps}/${habit.totalCounts} ${
@@ -77,7 +77,7 @@ function listHabits(habits = [], habitsList) {
            <button class="btn btn-sm btn-light btn-outline-warning text-black shadow border border-black ms-3 btn-reset ${disabled}" data-index="${i}" data-text="${
               habit.text
             }"><i class="fa-solid fa-rotate-left"></i></button>
-          <button class="btn btn-sm btn-outline-danger border-black text-black shadow border ms-3 delete" data-text="${
+          <button class="btn btn-sm btn-outline-danger border-black text-black shadow border mx-3 delete" data-text="${
             habit.text
           }" data-index="${i}" id="delete${i}"><i class="fa-solid fa-trash-can"></i></button>
         </li>
