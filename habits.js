@@ -58,7 +58,7 @@ function listHabits(habits = [], habitsList) {
         <li class="shadow border rounded bg-light mx-auto m-4 p-3 text-capitalize">
           <h3 class="h4"><i class="fa-solid fa-fire h5 me-2"> ${habit.streak} </i> 
             ${habit.text} </h3> 
-          <div class="repsCounter h6">${habit.reps}/${habit.totalCounts} ${
+          <div class="repsCounter h6">Repetitions: ${habit.reps}/${habit.totalCounts} ${
               habit.timeframe
             } 
             <input type="checkbox" data-index="${i}" id="habit${i}" ${
@@ -66,6 +66,7 @@ function listHabits(habits = [], habitsList) {
             } />
           </div>
           <div class="mb-2">Priority: ${habit.priority}</div>
+          <span> Streak:</span>
           <button class="btn btn-sm btn-light shadow border border-black btn-decrement ${disabled}" data-index="${i}" data-text="${
               habit.text
             }"><i class="fa-solid fa-minus"></i></button>
