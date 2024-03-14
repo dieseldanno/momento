@@ -20,12 +20,36 @@
   
   body {
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     background-color: white;
     color: black;
     height: 100vh;
   }
+
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  padding: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  background-color: white;
+  color: black;
+  font-size:medium;
+}
+
+h1,h2{
+  text-transform: uppercase;
+}
+
+h1{
+  margin: 0px 10px 20px 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
   
   .header {
     display: flex;
@@ -38,6 +62,7 @@
     margin-left: auto;
     margin-right: auto;
     text-transform: uppercase;
+    font-weight: 700;
   }
   
   .header-menu {
@@ -60,30 +85,31 @@
   a {
     text-decoration: none;
     color: black;
+    font-weight: 700;
   }
   
   
   .navBtn {
     color: #2b2b2b;
-    border-radius: 20px;
+    border-radius: 6px;
     padding: 12px 25px;
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 700 !important;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    text-decoration: none;
   }
   
   .navbBtn:hover {
     cursor: pointer;
   }
+
   
   .todo {
-    background-color: #fdd1d1;
+    background-color: #add8e6;
   }
   
    .habitsBtn {
-    background-color: #ffc79f;
+    background-color: #e0d3fc;
   }
   
   .weather {
@@ -91,11 +117,11 @@
   }
   
   .pomodoro {
-    background-color: #a1eeff;
+    background-color: #efffa1;
   }
   
   .calendar {
-    background-color: #cda7ff;
+    background-color: #ffe1e9;
   }
   
   .mobile-nav {
@@ -140,8 +166,8 @@
   
   .logout-btn {
     color: #2b2b2b;
-    background-color: #cda7ff;
-    border-radius: 20px;
+    background-color: #cacaca;;
+    border-radius: 6px;
     padding: 10px 20px;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -152,11 +178,11 @@
   }
   
   .todo-mobile:active {
-    background-color: #fdd1d1;
+    background-color: #add8e6;
   }
   
   .habits-mobile:active {
-    background-color: #ffc79f;
+    background-color: #e0d3fc;
   }
   
   .weather-mobile:active {
@@ -164,11 +190,14 @@
   }
   
   .pomodoro-mobile:active {
-    background-color: #a1eeff;
+    background-color: #efffa1;
   }
   
   .calendar-mobile:active {
-    background-color: #cda7ff;
+    background-color: #ffe1e9;
+  }
+  .wrapper-calendar {
+    display: none;
   }
   
   @media (min-width: 768px) {
@@ -179,6 +208,7 @@
       list-style: none;
       padding: 0;
       gap: 2em;
+      font-weight: 700;
     }
   
     .mobile-nav,
@@ -190,21 +220,34 @@
     .header-link {
       padding: 7px 10px;
       font-weight: 700;
-      border-radius: 20px;
+      border-radius: 6px;
       text-decoration: none;
       color: black;
+      font-weight: 700 !important;
+    }
+  
+    .start-desktop:hover {
+      background-color: #ff9a9a;
+    }
+  
+    .todo-desktop:hover {
+      background-color: #add8e6;
+    }
+  
+    .habits-desktop:hover {
+      background-color: #e0d3fc;
     }
   
     .weather-desktop:hover {
-      background-color: #ffa7d3;
+      background-color: #d9ffa9;
     }
   
     .pomodoro-desktop:hover {
-      background-color: #a9d7ff;
+      background-color: #efffa1;
     }
   
     .calendar-desktop:hover {
-      background-color: #d9ffa9;
+      background-color: #ffe1e9;
     }
   
     .desktop-line {
@@ -219,7 +262,7 @@
     }
   
     .logout-btn:hover {
-      background-color: #b074ff;
+      background-color: #938f8f;
     }
   
     .hidden {
