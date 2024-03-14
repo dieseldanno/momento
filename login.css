@@ -25,6 +25,12 @@ body {
   text-align: center;
 }
 
+.momento-logo {
+  /* width: 50px; */
+  height: 100px;
+  margin-bottom: 40px;
+}
+
 .login-form,
 .register-form {
   display: flex;
@@ -251,7 +257,7 @@ input::placeholder {
 /* @media (min-width: 768px) {} */
 
 /* xl */
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   #loginBtn:hover,
   #registerBtn:hover {
     background-color: #f8c8dc;

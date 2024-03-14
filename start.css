@@ -29,6 +29,9 @@ body {
 .header-menu {
   display: none;
 }
+.start-logo{
+  display:none;
+}
 
 .hidden {
   display: none;
@@ -262,6 +265,10 @@ a {
     margin-bottom: 15px;
   }
 
+  .start-logo{
+    width:25%;
+    display:block;
+  }
   .ctaContainer {
     height: 70%;
     width: 100%;
