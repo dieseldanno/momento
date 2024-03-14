@@ -2,8 +2,8 @@ let display = document.querySelector(".numberDisplay");
 let longBtn = document.querySelector("#longBreak");
 let shortBtn = document.querySelector("#shortBreak");
 let setTimeBtn = document.querySelector("#setTimeBtn");
-let closeSetModal = document.getElementsByClassName('closeSetModal');
-let setModal = document.getElementById("set-modal");
+let closeSetModal = document.querySelector('.closeSetModal');
+let setModal = document.querySelector("#set-modal");
 let timeInput = document.querySelector("#timeInput");
 
 let timer = null;

@@ -363,7 +363,7 @@
         font-size: 16px;
         
       }
-      .close {
+      .closeSetModal {
         color: #aaaaaa;
         float: right;
         font-size: 28px;
@@ -373,8 +373,8 @@
         right: 10px;
       }
       
-      .close:hover,
-      .close:focus {
+      .closeSetModal:hover,
+      .closeSetModal:focus {
         color: #000;
         text-decoration: none;
         cursor: pointer;
@@ -392,6 +392,10 @@
             width: 90%;
             height: fit-content;
             padding: 0px;
+        
+        }
+        .set-modal-content {
+          width: 60%;
         
         }
       }
