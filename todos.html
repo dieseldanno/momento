@@ -19,6 +19,7 @@
     <script src="todos.js" defer></script>
     <script src="start.js" defer></script>
     <script src="calendar.js" defer></script>
+    <script src="pomodoro.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -157,7 +158,9 @@
               <a class="mobile-nav-link weather-mobile" href="#">WEATHER</a>
             </li>
             <li>
-              <a class="mobile-nav-link pomodoro-mobile" href="#">POMODORO</a>
+              <a class="mobile-nav-link pomodoro-mobile" href="pomodoro.html"
+                >POMODORO</a
+              >
             </li>
             <li>
               <a class="mobile-nav-link calendar-mobile" href="calendar.html"
@@ -203,6 +206,42 @@
         </form>
       </div>
       <div class="events-list"></div>
+    </div>
+    <div class="outerModal">
+      <div class="timer-wrapper">
+        <div class="timerContainer">
+          <h1>Pomofocus</h1>
+          <div class="timerContent">
+            <div class="timer-btns">
+              <button id="longBreak">Long Break</button>
+              <button id="shortBreak">Short Break</button>
+              <button id="setTimeBtn">Set Time</button>
+            </div>
+            <div class="numberDisplay">00:00</div>
+            <div class="timer-buttonContainer timer-btns">
+              <button id="startBtn" onclick="start()">START</button>
+              <button id="pauseBtn" onclick="pause()">PAUSE</button>
+              <button id="stopBtn" onclick="stop()">RESET</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="set-modal" class="set-modal">
+        <div class="set-modal-content">
+          <span class="closeSetModal">&times;</span>
+          <h2 class="set-modal-title">Set timer</h2>
+          <input
+            type="number"
+            id="timeInput"
+            class="modal-input"
+            placeholder=" Set min"
+          />
+          <div class="set-modal-buttons">
+            <button id="setBtn" class="set-modal-button">SET</button>
+            <button id="cancelBtn" class="set-modal-button">CANCEL</button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

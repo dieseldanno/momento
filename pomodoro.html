@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Momento</title>
-    <link rel="icon" type="image/png" href="images/favicon.png" />
-    <link rel="stylesheet" href="start.css" />
+    <link rel="stylesheet" href="pomodoro.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,18 +11,17 @@
       rel="stylesheet"
     />
     <script
-      src="https://kit.fontawesome.com/eda7159a08.js"
+      src="https://kit.fontawesome.com/7d4a336cd6.js"
       crossorigin="anonymous"
     ></script>
-    <script src="start.js" defer></script>
-    <script src="login.js" defer></script>
-    <script src="calendar.js" defer></script>
     <script src="pomodoro.js" defer></script>
+    <script src="start.js" defer></script>
+    <title>Pomodoro</title>
   </head>
   <body>
     <header class="header">
       <nav>
-        <ul class="header-menu">
+        <!-- <ul class="header-menu">
           <li>
             <a class="header-link start-desktop" href="start.html">HOME</a>
           </li>
@@ -45,14 +42,13 @@
           </li>
           <li class="desktop-line"></li>
           <li>
-            <a href="#" class="logout-btn logout">LOGOUT</a>
+            <a href="login.html" class="logout-btn logout">LOGOUT</a>
           </li>
-        </ul>
+        </ul> -->
         <i class="fa-solid fa-bars" id="menu-bars"> </i>
       </nav>
     </header>
     <div class="container">
-      <img src="images/logo1.png" alt="logo" class="start-logo" />
       <h2 id="usernameDisplay"></h2>
     </div>
 
@@ -86,73 +82,10 @@
           </li>
           <li class="desktop-line"></li>
           <li>
-            <a href="#" class="logout-btn logout">LOGOUT</a>
+            <a href="login.html" class="logout-btn logout">LOGOUT</a>
           </li>
         </ul>
       </nav>
-    </div>
-    <div class="main">
-      <!-- <div class="container">
-        <h2 id="usernameDisplay"></h2>
-      </div> -->
-
-      <div class="ctaContainer hidden">
-        <button class="btn todoBtn hidden" id="startTodosBtn">TODOS</button>
-        <button class="btn habitsBtn hidden" id="startHabitsBtn">HABITS</button>
-      </div>
-
-      <div class="container hidden">
-        <div>
-          <a href="todos.html" class="btn todo mobile-btn">TO DO</a>
-        </div>
-        <div>
-          <a href="habits.html" class="btn habits mobile-btn">HABITS</a>
-        </div>
-        <div>
-          <a href="#" class="btn weather mobile-btn">WEATHER</a>
-        </div>
-        <div>
-          <a href="pomodoro.html" class="btn pomodoro mobile-btn">POMODORO</a>
-        </div>
-        <div>
-          <a href="calendar.html" class="btn calendar mobile-btn">CALENDAR</a>
-        </div>
-      </div>
-      <div class="modal popup-weather"></div>
-      <div class="modal popup-pomodoro"></div>
-      <div class="modal popup-calendar"></div>
-    </div>
-    <div class="wrapper-calendar">
-      <div class="container-calendar">
-        <form id="form-calendar">
-          <label for="text" class="label-text">What's the plan?</label>
-          <input
-            type="text"
-            name="text"
-            id="text"
-            class="text-input"
-            placeholder="Enter event details"
-          />
-          <label for="date" class="label-text">Select a date</label>
-          <input type="date" name="date" id="date" class="date-input" />
-          <label for="start-time" class="label-text">Start time</label>
-          <input
-            type="time"
-            name="start-time"
-            id="start-time"
-            class="start-time-input"
-          />
-          <label for="stop-time" class="label-text">Stop time</label>
-          <input
-            type="time"
-            name="stop-time"
-            id="stop-time"
-            class="stop-time-input"
-          />
-          <button class="add-event-btn">Add event</button>
-        </form>
-      </div>
-      <div class="events-list"></div>
     </div>
     <div class="outerModal">
       <div class="timer-wrapper">
@@ -192,5 +125,3 @@
     </div>
   </body>
 </html>
-
-<!-- test -->
