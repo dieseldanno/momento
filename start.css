@@ -30,7 +30,7 @@ body {
   display: none;
 }
 .start-logo{
-  display:none
+  display:none;
 }
 
 .hidden {
@@ -263,7 +263,7 @@ a {
 
   .start-logo{
     width:25%;
-    display:block
+    display:block;
   }
   .ctaContainer {
     height: 70%;
