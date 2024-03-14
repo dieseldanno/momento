@@ -191,6 +191,19 @@ a {
     gap: 2em;
     font-weight: 700;
   }
+  .nav-logo {
+    order: -1; /* Places the logo at the start of the flex container */
+  }
+  .nav-logo a {
+    display: flex; /* Ensures the link expands to fit the logo */
+    align-items: center; /* Aligns the logo vertically */
+  }
+  .logo1 {
+    height: 30px; /* Adjust the size of the logo as needed */
+  }
+  .nav-logo li {
+    margin-right: 20px;
+  }
   .mobile-nav,
   #menu-bars,
   .mobile-btn {
