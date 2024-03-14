@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--meta data-->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--favicon-->
     <link rel="icon" type="image/png" href="images/favicon.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+    <!--css style-->
     <link rel="stylesheet" href="style.css" class="css" />
+    <!--google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/7d4a336cd6.js"
-      crossorigin="anonymous"
-    ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
+    <!--bootstrap js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+   <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/7d4a336cd6.js" crossorigin="anonymous"></script>
+    <!--js files-->
     <script src="habits.js" defer></script>
     <script src="start.js" defer></script>
     <script src="calendar.js" defer></script>
     <script src="pomodoro.js" defer></script>
-
+<!-- Title Habits Momento-->
     <title>Habits</title>
   </head>
   <body>
+    <!--Header-->
     <header class="header fw-bold">
+      <!--Desktop Navigation-->
       <nav>
         <ul class="header-menu fw-bold">
           <li>
@@ -81,7 +75,7 @@
             >
           </li>
           <li>
-            <a class="mobile-nav-link weather-mobile" href="#">WEATHER</a>
+            <a class="mobile-nav-link weather-mobile" href="weather.html">WEATHER</a>
           </li>
           <li>
             <a class="mobile-nav-link pomodoro-mobile" href="pomodoro.html"
@@ -101,6 +95,7 @@
       </nav>
     </div>
     <main>
+      <!--Habits-->
       <div class="container mx-auto rounded shadow shadow-lg habitContainer">
         <h1 class="text-center h2 pt-3">Habits</h1>
         <form
@@ -152,16 +147,13 @@
               >
             </div>
             <input type="checkbox" id="filterLow" value="low" />
-            <label for="filterLow">Low</label><br />
+            <label for="filterLow">Low</label>
             <input type="checkbox" id="filterNormal" value="normal" />
-            <label for="filterNormal">Normal</label><br />
+            <label for="filterNormal">Normal</label>
             <input type="checkbox" id="filterHigh" value="high" />
             <label for="filterHigh">High</label>
             <div>
-              <button
-                class="btn btn-sm btn-light border border-black shadow text-nowrap"
-                id="clearAllFilters"
-              >
+              <button class="btn btn-sm btn-light border border-black shadow text-nowrap" id="clearAllFilters">
                 Clear Filters
               </button>
             </div>
@@ -186,6 +178,7 @@
         </ul>
       </div>
     </main>
+    <!-- Calendar-->
     <div class="wrapper-calendar">
       <div class="container-calendar">
         <form id="form-calendar">
@@ -218,6 +211,7 @@
       </div>
       <div class="events-list"></div>
     </div>
+    <!--Pomodoro-->
     <div class="outerModal">
       <div class="timer-wrapper">
         <div class="timerContainer">
