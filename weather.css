@@ -37,11 +37,11 @@ body{
 .weather-icon{
     color:#000;
 }
-.weather h1{
+.weather h2{
     font-weight: 700;
     margin-top: -20px;
 }
-.weather h2{
+.weather h3{
     font-weight: 400;
     margin-top: -10px;
 }
